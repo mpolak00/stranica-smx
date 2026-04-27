@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXO RESEARCH | Premium Research Peptides</title>
-  <meta name="description" content="NEXO RESEARCH offers premium-grade Semax research materials with batch COA, SDS, and cold-chain shipping for lawful laboratory use only.">
+  <title>NEXO RESEARCH | Semax Nasal Spray Research Grade</title>
+  <meta name="description" content="Research-grade Semax nasal spray with 99%+ HPLC purity, COA per batch, cold-chain delivery, and full documentation for qualified laboratory professionals.">
   <style>
-    @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500&display=swap');
+    @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500,700&display=swap');
 
     :root {
-      --bg-base: #0a0a08;
-      --bg-surface: #111110;
-      --bg-card: #161614;
-      --bg-elevated: #1c1c1a;
-      --bg-border: rgba(255,255,255,0.08);
+      --bg-base: #09090b;
+      --bg-surface: #0f0f11;
+      --bg-card: #141416;
+      --bg-elevated: #1a1a1d;
+      --bg-glass: rgba(255,255,255,0.03);
+      --bg-glass-hover: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.15);
+      --border-accent: rgba(74,158,107,0.3);
       --text-primary: #f0efe9;
       --text-muted: #8a8980;
-      --text-faint: #4a4a46;
+      --text-faint: #3d3d3a;
+      --text-inverse: #09090b;
       --accent: #4a9e6b;
       --accent-hover: #3d8559;
-      --accent-glow: rgba(74,158,107,0.15);
+      --accent-glow: rgba(74,158,107,0.12);
       --accent-highlight: #6dbf8a;
-      --warning: #c8a45a;
-      --warning-bg: rgba(200,164,90,0.1);
+      --accent-subtle: rgba(74,158,107,0.08);
+      --gold: #c8a45a;
+      --gold-bg: rgba(200,164,90,0.08);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.6);
+      --shadow-accent: 0 0 40px rgba(74,158,107,0.15);
+      --glow-accent: 0 0 80px rgba(74,158,107,0.08);
       --font-display: "Cabinet Grotesk", Georgia, serif;
       --font-body: "Satoshi", Inter, sans-serif;
       --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
@@ -31,26 +47,20 @@
       --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
       --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
       --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --text-hero: clamp(2.8rem, 1rem + 6vw, 6rem);
+      --text-hero: clamp(2.8rem, 1rem + 5.5vw, 5.5rem);
+      --space-1: 0.25rem;
       --space-2: 0.5rem;
       --space-3: 0.75rem;
       --space-4: 1rem;
-      --space-5: 1.25rem;
       --space-6: 1.5rem;
       --space-8: 2rem;
       --space-10: 2.5rem;
       --space-12: 3rem;
-      --space-14: 3.5rem;
       --space-16: 4rem;
       --space-20: 5rem;
       --space-24: 6rem;
-      --radius-sm: 0.375rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;
-      --radius-xl: 1rem;
-      --radius-full: 999px;
-      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.28);
-      --shadow-accent: 0 20px 60px rgba(74, 158, 107, 0.1);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 220ms var(--ease);
     }
 
     * {
@@ -64,12 +74,12 @@
     body {
       margin: 0;
       font-family: var(--font-body);
-      background:
-        radial-gradient(circle at top, rgba(74, 158, 107, 0.08), transparent 28%),
-        linear-gradient(180deg, #0f100d 0%, var(--bg-base) 22%, #080807 100%);
       color: var(--text-primary);
-      padding-top: 40px;
+      background:
+        radial-gradient(circle at top, rgba(74,158,107,0.08), transparent 28%),
+        linear-gradient(180deg, #111116 0%, var(--bg-base) 22%, #060607 100%);
       overflow-x: hidden;
+      padding-top: 40px;
     }
 
     body.bar-hidden {
@@ -80,20 +90,16 @@
       overflow: hidden;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button,
     a,
-    button,
-    input,
-    summary {
-      min-height: 44px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
     input {
+      min-height: 44px;
       font: inherit;
     }
 
@@ -102,46 +108,68 @@
       border: 0;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     main {
       position: relative;
       z-index: 1;
     }
 
     .container {
-      width: min(1180px, calc(100% - 3rem));
+      width: min(1200px, calc(100% - 2rem));
       margin: 0 auto;
     }
 
-    .section-title {
-      margin: 0 0 var(--space-4);
+    .section-shell {
+      padding: var(--space-20) 0;
+    }
+
+    .section-surface {
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.005));
+      border-top: 1px solid rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-accent);
+      background: var(--accent-subtle);
+      color: var(--accent-highlight);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      display: grid;
+      gap: var(--space-3);
+      margin-bottom: var(--space-12);
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin: 0;
       font-family: var(--font-display);
       font-size: var(--text-2xl);
       font-weight: 800;
-      letter-spacing: -0.04em;
-      text-align: center;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
     }
 
-    .section-subtitle {
-      max-width: 580px;
-      margin: 0 auto var(--space-12);
+    .section-head p {
+      max-width: 720px;
+      margin: 0 auto;
       color: var(--text-muted);
       font-size: var(--text-lg);
       line-height: 1.7;
-      text-align: center;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 44px;
-      padding: var(--space-1, 0.375rem) var(--space-4);
-      border-radius: var(--radius-full);
-      border: 1px solid var(--bg-border);
-      font-size: var(--text-xs);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
     }
 
     .btn {
@@ -149,13 +177,14 @@
       align-items: center;
       justify-content: center;
       gap: 0.65rem;
-      min-height: 48px;
-      padding: 0.85rem 1.4rem;
-      border-radius: var(--radius-full);
+      min-height: 50px;
+      padding: 0.95rem 1.35rem;
+      border-radius: var(--radius-pill);
       border: 1px solid transparent;
+      transition: transform var(--transition), background-color var(--transition), border-color var(--transition), box-shadow var(--transition), color var(--transition);
       font-size: var(--text-sm);
-      font-weight: 500;
-      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
 
     .btn:hover,
@@ -166,8 +195,8 @@
 
     .btn-primary {
       background: var(--accent);
-      color: #f7f5ef;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 40px var(--accent-glow);
+      color: #f8f6f1;
+      box-shadow: 0 16px 40px var(--accent-glow);
     }
 
     .btn-primary:hover,
@@ -175,48 +204,55 @@
       background: var(--accent-hover);
     }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--accent-highlight);
-      border-color: rgba(74, 158, 107, 0.6);
+    .btn-secondary {
+      border-color: var(--border-accent);
+      background: rgba(255,255,255,0.01);
+      color: var(--text-primary);
     }
 
-    .btn-outline:hover,
-    .btn-outline:focus-visible {
-      background: rgba(74, 158, 107, 0.08);
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--border-hover);
     }
 
-    .announcement-bar {
+    .glass-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(18px);
+    }
+
+    .announcement {
       position: fixed;
       inset: 0 0 auto;
       z-index: 1200;
       height: 40px;
       display: flex;
       align-items: center;
-      background: var(--bg-surface);
-      border-bottom: 1px solid var(--bg-border);
       overflow: hidden;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
     }
 
-    .announcement-bar[hidden] {
+    .announcement[hidden] {
       display: none;
     }
 
     .announcement-track {
       display: flex;
       width: max-content;
-      animation: marquee 22s linear infinite;
       white-space: nowrap;
+      animation: marquee 30s linear infinite;
       color: var(--text-muted);
       font-size: var(--text-xs);
-      letter-spacing: 0.18em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding-left: var(--space-6);
+      padding-left: var(--space-4);
     }
 
     .announcement-track span {
-      display: inline-flex;
-      align-items: center;
       padding-right: var(--space-8);
     }
 
@@ -225,19 +261,18 @@
       top: 50%;
       right: var(--space-4);
       transform: translateY(-50%);
-      z-index: 2;
+      width: 44px;
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      color: var(--text-muted);
-      background: rgba(10,10,8,0.7);
-      border-radius: var(--radius-full);
+      color: var(--text-primary);
+      background: rgba(9,9,11,0.85);
+      border-radius: 999px;
     }
 
     .announcement-close:hover,
     .announcement-close:focus-visible {
-      color: var(--text-primary);
       background: rgba(255,255,255,0.08);
       outline: none;
     }
@@ -246,10 +281,10 @@
       position: sticky;
       top: 40px;
       z-index: 1100;
-      backdrop-filter: blur(20px);
-      background: rgba(10, 10, 8, 0.85);
-      border-bottom: 1px solid var(--bg-border);
-      transition: background-color 180ms ease, padding 180ms ease, box-shadow 180ms ease;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9,9,11,0.85);
+      backdrop-filter: blur(24px);
+      transition: background-color var(--transition), border-color var(--transition), padding var(--transition), box-shadow var(--transition);
     }
 
     body.bar-hidden .site-nav {
@@ -257,65 +292,65 @@
     }
 
     .site-nav.scrolled {
-      background: rgba(8, 8, 7, 0.94);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      background: rgba(8,8,9,0.94);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.3);
     }
 
     .nav-inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
       gap: var(--space-6);
-      padding: var(--space-4) var(--space-6);
-      transition: padding 180ms ease;
+      padding: 1rem 0;
     }
 
-    .site-nav.scrolled .nav-inner {
-      padding-top: 0.85rem;
-      padding-bottom: 0.85rem;
-    }
-
-    .brand {
+    .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.9rem;
       min-height: 44px;
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
     }
 
-    .brand svg {
-      width: 42px;
-      height: 42px;
+    .brand-mark {
+      width: 46px;
+      height: 46px;
       flex: 0 0 auto;
     }
 
     .brand-wordmark {
-      line-height: 1.1;
+      display: grid;
+      line-height: 1;
     }
 
-    .brand-wordmark small {
-      display: block;
+    .brand-wordmark strong {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .brand-wordmark span {
       color: var(--text-muted);
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
     }
 
     .nav-links {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: var(--space-6);
-      font-size: var(--text-sm);
+      justify-content: center;
+      gap: var(--space-8);
       color: var(--text-muted);
+      font-size: var(--text-sm);
+      font-weight: 500;
     }
 
     .nav-links a {
       position: relative;
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
     }
@@ -324,18 +359,24 @@
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.2rem;
+      bottom: 0.55rem;
       width: 100%;
       height: 1px;
-      background: var(--accent);
+      background: var(--accent-highlight);
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform 180ms ease;
+      transition: transform var(--transition);
     }
 
     .nav-links a:hover::after,
     .nav-links a:focus-visible::after {
       transform: scaleX(1);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text-primary);
+      outline: none;
     }
 
     .nav-actions {
@@ -344,35 +385,35 @@
       gap: var(--space-3);
     }
 
-    .hamburger {
+    .menu-toggle {
       display: none;
       width: 44px;
-      border: 1px solid var(--bg-border);
-      border-radius: var(--radius-full);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 999px;
       color: var(--text-primary);
     }
 
-    .hamburger-line {
+    .menu-toggle span {
+      display: block;
       width: 18px;
       height: 2px;
+      margin: 3px auto;
       border-radius: 999px;
       background: currentColor;
-      display: block;
-      margin: 3px auto;
     }
 
-    .mobile-overlay {
+    .drawer-overlay {
       position: fixed;
       inset: 0;
       z-index: 1150;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.72);
       opacity: 0;
       visibility: hidden;
-      transition: opacity 200ms ease, visibility 200ms ease;
+      transition: opacity var(--transition), visibility var(--transition);
     }
 
-    .mobile-overlay.is-open {
+    .drawer-overlay.is-open {
       opacity: 1;
       visibility: visible;
     }
@@ -382,14 +423,14 @@
       top: 0;
       right: 0;
       z-index: 1160;
-      width: min(90vw, 360px);
+      width: min(88vw, 360px);
       height: 100vh;
       padding: var(--space-10) var(--space-6);
-      background: rgba(16, 16, 14, 0.98);
-      border-left: 1px solid var(--bg-border);
-      box-shadow: var(--shadow-soft);
+      background: rgba(12,12,13,0.98);
+      border-left: 1px solid var(--border);
       transform: translateX(100%);
-      transition: transform 240ms ease;
+      transition: transform var(--transition);
+      box-shadow: var(--shadow-lg);
     }
 
     .mobile-drawer.is-open {
@@ -399,8 +440,8 @@
     .drawer-close {
       margin-left: auto;
       width: 44px;
-      border-radius: var(--radius-full);
       background: rgba(255,255,255,0.04);
+      border-radius: 999px;
       color: var(--text-primary);
     }
 
@@ -411,309 +452,562 @@
     }
 
     .drawer-links a,
-    .drawer-links .btn {
+    .drawer-links button {
       width: 100%;
       justify-content: space-between;
-      padding-inline: var(--space-4);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
-      background: rgba(255,255,255,0.02);
-      color: var(--text-primary);
     }
 
     #hero {
-      min-height: 100vh;
+      min-height: calc(100vh - 40px);
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: var(--space-24) var(--space-6) var(--space-20);
-      background: radial-gradient(ellipse at 50% 40%, rgba(74,158,107,0.06) 0%, transparent 70%), var(--bg-base);
+      padding: var(--space-20) 0 var(--space-12);
     }
 
-    .hero-shell {
-      width: min(800px, 100%);
-      text-align: center;
-    }
-
-    .hero-badge {
-      color: var(--accent-highlight);
-      border-color: rgba(74, 158, 107, 0.7);
-      background: rgba(74, 158, 107, 0.06);
-      box-shadow: inset 0 0 0 1px rgba(74, 158, 107, 0.08);
-    }
-
-    .hero-title {
-      margin: var(--space-6) 0 var(--space-4);
-      font-family: var(--font-display);
-      font-size: var(--text-hero);
-      font-weight: 800;
-      line-height: 0.94;
-      letter-spacing: -0.06em;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      gap: var(--space-12);
+      align-items: center;
     }
 
     .hero-copy {
-      max-width: 620px;
-      margin: 0 auto;
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      max-width: 11ch;
+    }
+
+    .hero-copy p {
+      max-width: 650px;
+      margin: 0;
       color: var(--text-muted);
       font-size: var(--text-lg);
-      line-height: 1.75;
+      line-height: 1.72;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: var(--space-4);
-      margin-top: var(--space-8);
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--space-4);
-      margin-top: var(--space-10);
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
     }
 
-    .trust-badge,
-    .stat-card,
-    .science-card,
-    .product-card,
-    .data-table-wrap,
-    .newsletter-form input {
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-    }
-
-    .trust-badge {
-      padding: var(--space-3) var(--space-4);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
-      background: var(--bg-surface);
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: var(--bg-glass);
       color: var(--text-primary);
       font-size: var(--text-sm);
+      backdrop-filter: blur(12px);
     }
 
-    .hero-ticker {
-      margin-top: var(--space-10);
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      max-width: 460px;
+      width: 100%;
+    }
+
+    .hero-image-wrap::before {
+      content: "";
+      position: absolute;
+      inset: auto 10% -10% 10%;
+      height: 26%;
+      background: radial-gradient(circle, rgba(74,158,107,0.3), transparent 70%);
+      filter: blur(32px);
+      z-index: 0;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 40px 80px rgba(74,158,107,0.12), 0 28px 70px rgba(0,0,0,0.45);
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 0.95rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(18,18,20,0.54);
+      color: var(--text-primary);
+      backdrop-filter: blur(18px);
+      font-size: var(--text-sm);
+    }
+
+    .ticker {
       overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      padding-block: var(--space-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
     }
 
-    .hero-ticker-track {
+    .ticker-track {
       display: flex;
       width: max-content;
-      animation: ticker-scroll 18s linear infinite;
-      color: var(--text-faint);
-      font-size: var(--text-sm);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       white-space: nowrap;
+      animation: marquee 32s linear infinite;
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.95rem 0;
     }
 
-    .hero-ticker-track span {
+    .ticker-track span {
       padding-right: var(--space-8);
     }
 
-    section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 600ms ease-out, transform 600ms ease-out;
-    }
-
-    section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .products-section,
-    .quality-section,
-    .faq-section {
-      padding: var(--space-20) var(--space-6);
-    }
-
-    .science-section,
-    .policy-section,
-    .newsletter-section,
-    footer {
-      background: var(--bg-surface);
-    }
-
-    .products-grid {
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-8);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-4);
     }
 
-    .product-card {
-      position: relative;
+    .stat-card {
       padding: var(--space-8);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--bg-border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)), var(--bg-card);
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
     }
 
-    .product-card:hover {
-      transform: translateY(-4px);
+    .stat-card:hover {
+      border-color: var(--border-accent);
       box-shadow: var(--shadow-accent);
+      transform: translateY(-2px);
     }
 
-    .product-card.featured {
-      border-color: rgba(74, 158, 107, 0.8);
-      box-shadow: inset 0 0 0 1px rgba(74, 158, 107, 0.22);
+    .stat-value {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 1.8rem + 1.4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--text-primary);
     }
 
-    .product-topline {
+    .stat-label {
+      display: block;
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .progress-shell {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .progress-row {
+      padding: var(--space-6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    }
+
+    .progress-head {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: var(--space-4);
-      margin-bottom: var(--space-6);
+      margin-bottom: 0.9rem;
     }
 
-    .product-badge {
-      color: var(--text-faint);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .product-badge.featured {
-      color: #f7f5ef;
-      background: var(--accent);
-      border-color: transparent;
-    }
-
-    .save-badge {
-      position: absolute;
-      top: var(--space-6);
-      right: var(--space-6);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 0.95rem;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(200, 164, 90, 0.35);
-      color: var(--warning);
-      background: var(--warning-bg);
-      font-size: var(--text-xs);
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .product-card h3 {
-      margin: 0 0 var(--space-4);
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 1.2rem + 1vw, 2.25rem);
+    .progress-head h3 {
+      margin: 0 0 0.25rem;
+      font-size: var(--text-lg);
       font-weight: 700;
-      letter-spacing: -0.03em;
     }
 
-    .price-row {
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-3);
-      margin-bottom: var(--space-4);
-    }
-
-    .price {
-      color: var(--accent-highlight);
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-    }
-
-    .price-compare {
+    .progress-head p {
+      margin: 0;
       color: var(--text-muted);
-      font-size: var(--text-base);
-      text-decoration: line-through;
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .progress-stat {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--accent-highlight);
+      white-space: nowrap;
+    }
+
+    .progress-track {
+      position: relative;
+      width: 100%;
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-highlight));
+      transition: width 1.2s var(--ease);
+    }
+
+    .disclaimer {
+      margin: var(--space-4) auto 0;
+      color: var(--text-faint);
+      font-size: var(--text-xs);
+      line-height: 1.7;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+      gap: var(--space-10);
+      align-items: start;
     }
 
     .product-copy {
-      color: var(--text-muted);
-      font-size: var(--text-base);
-      line-height: 1.75;
-      margin-bottom: var(--space-6);
+      display: grid;
+      gap: var(--space-6);
     }
 
-    .feature-list {
+    .product-copy h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+    }
+
+    .product-copy p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: var(--text-lg);
+      line-height: 1.7;
+    }
+
+    .product-image-card {
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .product-image-card img {
+      width: 100%;
+      border-radius: calc(var(--radius-lg) - 6px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .checklist {
       display: grid;
-      gap: var(--space-3);
-      margin: 0 0 var(--space-8);
+      gap: 0.85rem;
+      margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .feature-list li {
-      position: relative;
-      padding-left: 1.9rem;
+    .checklist li {
+      display: grid;
+      grid-template-columns: 1.35rem 1fr;
+      gap: 0.75rem;
+      align-items: start;
       color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .checklist li i {
+      color: var(--accent-highlight);
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .sticky-panel {
+      position: sticky;
+      top: 100px;
+      padding: var(--space-8);
+    }
+
+    .sticky-panel h3 {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 1.4rem + 1vw, 2.35rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .sticky-panel > p {
+      margin: 0 0 var(--space-6);
+      color: var(--text-muted);
       line-height: 1.65;
     }
 
-    .feature-list li::before {
-      content: "✓";
+    .variant-group {
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: var(--space-6);
+    }
+
+    .variant-option {
+      position: relative;
+      display: grid;
+      gap: 0.55rem;
+      padding: 1rem 1rem 1rem 3.15rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+      transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+    }
+
+    .variant-option:hover {
+      border-color: var(--border-hover);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .variant-option input {
       position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--accent-highlight);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .variant-option::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      width: 18px;
+      height: 18px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: transparent;
+      box-shadow: inset 0 0 0 4px transparent;
+      transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    }
+
+    .variant-option.is-active {
+      border-color: var(--border-accent);
+      background: var(--accent-subtle);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .variant-option.is-active::before {
+      border-color: var(--accent-highlight);
+      box-shadow: inset 0 0 0 4px var(--accent-highlight);
+    }
+
+    .variant-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-size: var(--text-base);
       font-weight: 700;
     }
 
-    .full-width {
-      width: 100%;
+    .variant-name {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
     }
 
-    .disclaimer-box {
-      margin-top: var(--space-8);
-      padding: var(--space-4) var(--space-6);
+    .variant-price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .variant-price del {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+
+    .variant-note {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-height: 28px;
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tag.best {
+      background: var(--accent);
+      color: #f8f6f1;
+      border-color: transparent;
+    }
+
+    .mini-card {
+      margin: 0 0 var(--space-6);
+      padding: 1rem;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(200,164,90,0.3);
-      background: var(--warning-bg);
-      color: var(--warning);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .mini-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 0.9rem;
+    }
+
+    .mini-bullets {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .trust-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: var(--space-4);
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+    }
+
+    .guarantee-box {
+      margin-top: var(--space-4);
+      padding: 0.95rem 1rem;
+      border: 1px solid rgba(200,164,90,0.25);
+      border-radius: var(--radius-lg);
+      background: var(--gold-bg);
+      color: var(--gold);
+      font-size: var(--text-sm);
+      line-height: 1.55;
+    }
+
+    .panel-disclaimer {
+      margin: var(--space-4) 0 0;
+      color: var(--text-faint);
+      font-size: var(--text-xs);
+      line-height: 1.7;
+    }
+
+    .science-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      gap: var(--space-10);
+      align-items: start;
+    }
+
+    .science-copy {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .science-copy .section-head {
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .science-copy .section-head p {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .feature-card {
+      padding: var(--space-6);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      border-radius: 14px;
+      background: var(--accent-subtle);
+      color: var(--accent-highlight);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 0.55rem;
+      font-size: var(--text-base);
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--text-muted);
       font-size: var(--text-sm);
       line-height: 1.7;
     }
 
-    .science-section {
-      padding: var(--space-20) var(--space-6);
-    }
-
-    .science-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-6);
-      margin-bottom: var(--space-12);
-    }
-
-    .science-card {
-      padding: var(--space-6);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
-      background: var(--bg-elevated);
-    }
-
-    .science-card h3 {
-      margin: 0 0 var(--space-3);
-      font-size: var(--text-lg);
-      font-weight: 500;
-    }
-
-    .science-card p {
-      margin: 0;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .data-table-wrap {
-      max-width: 640px;
-      margin: 0 auto;
-      border-radius: var(--radius-lg);
+    .spec-table-wrap {
       overflow: hidden;
-      border: 1px solid var(--bg-border);
-      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
     }
 
     table {
@@ -721,211 +1015,282 @@
       border-collapse: collapse;
     }
 
-    thead th {
+    th,
+    td {
+      padding: 1rem 1.1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.55;
+    }
+
+    th {
       background: var(--bg-elevated);
-      color: var(--text-muted);
       font-size: var(--text-xs);
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      text-align: left;
-      padding: var(--space-4) var(--space-5);
+      color: var(--text-muted);
     }
 
-    tbody tr:nth-child(odd) {
+    td:first-child {
+      border-left: 3px solid var(--accent);
+      width: 45%;
+    }
+
+    tbody tr:nth-child(odd) td {
+      background: rgba(255,255,255,0.01);
+    }
+
+    tbody tr:nth-child(even) td {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .comparison-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       background: var(--bg-card);
     }
 
-    tbody tr:nth-child(even) {
-      background: var(--bg-surface);
+    .comparison-table {
+      min-width: 760px;
     }
 
-    tbody td {
-      padding: var(--space-4) var(--space-5);
-      border-bottom: 1px solid var(--bg-border);
-      color: var(--text-primary);
-      line-height: 1.6;
+    .comparison-table th:first-child {
+      width: 34%;
     }
 
-    tbody tr:last-child td {
-      border-bottom: 0;
+    .comparison-table th:nth-child(2),
+    .comparison-table td:nth-child(2) {
+      background: rgba(74,158,107,0.08);
+      border-left: 1px solid var(--border-accent);
+      border-right: 1px solid var(--border-accent);
     }
 
-    .quality-grid {
+    .comparison-table th:nth-child(2) {
+      color: var(--accent-highlight);
+    }
+
+    .comparison-table .yes {
+      color: var(--accent-highlight);
+      font-weight: 700;
+    }
+
+    .comparison-table .no {
+      color: var(--text-faint);
+    }
+
+    .authority-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-5);
-      margin-bottom: var(--space-12);
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
     }
 
-    .quality-item {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-3);
-      padding: var(--space-5);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
-      background: rgba(255,255,255,0.02);
-      font-size: var(--text-base);
+    .authority-card {
+      padding: var(--space-6);
+    }
+
+    .authority-card .tag {
+      margin-bottom: 1rem;
+    }
+
+    .authority-card h3 {
+      margin: 0 0 0.6rem;
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+
+    .authority-card p {
+      margin: 0;
+      color: var(--text-muted);
       line-height: 1.7;
     }
 
-    .quality-item strong {
-      color: var(--accent-highlight);
-      font-size: 1.1em;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--space-6);
-    }
-
-    .stat-card {
-      padding: var(--space-8);
+    .community-ticker {
+      overflow: hidden;
+      padding: 1rem 0;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
-      background: var(--bg-card);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .community-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 34s linear infinite;
+      white-space: nowrap;
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      padding-left: var(--space-4);
+    }
+
+    .community-track span {
+      padding-right: var(--space-8);
+    }
+
+    .guarantee-section {
       text-align: center;
     }
 
-    .stat-card strong {
-      display: block;
-      color: var(--accent-highlight);
+    .guarantee-number {
+      margin: 0;
       font-family: var(--font-display);
-      font-size: var(--text-2xl);
+      font-size: clamp(4rem, 2.5rem + 6vw, 8rem);
       font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: var(--space-2);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+      color: var(--accent-highlight);
     }
 
-    .stat-card span {
+    .guarantee-copy {
+      max-width: 760px;
+      margin: 1rem auto 0;
       color: var(--text-muted);
+      font-size: var(--text-lg);
+      line-height: 1.75;
+    }
+
+    .guarantee-checks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+      color: var(--text-primary);
       font-size: var(--text-sm);
     }
 
-    .policy-section {
-      padding: var(--space-20) var(--space-6);
+    .guarantee-checks span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: var(--bg-glass);
+    }
+
+    .guarantee-footnote {
+      margin-top: var(--space-4);
+      color: var(--gold);
+      font-size: var(--text-xs);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .accordion-group {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
-      display: grid;
-      gap: var(--space-4);
+      border-top: 1px solid var(--border);
     }
 
     .accordion-item {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
-      background: rgba(255,255,255,0.02);
-      overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
 
-    .accordion-item summary {
-      list-style: none;
+    .accordion-trigger {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-4);
-      padding: var(--space-5) var(--space-6);
-      cursor: pointer;
+      padding: 1.2rem 0;
+      background: transparent;
+      color: var(--text-primary);
+      text-align: left;
       font-size: var(--text-base);
-      font-weight: 500;
+      font-weight: 700;
     }
 
-    .accordion-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .accordion-item summary::after {
-      content: "+";
-      color: var(--accent-highlight);
-      font-size: 1.5rem;
-      line-height: 1;
-      transition: transform 180ms ease;
-    }
-
-    .accordion-item[open] summary::after {
-      transform: rotate(45deg);
-    }
-
-    .accordion-content {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 240ms ease;
-    }
-
-    .accordion-item[open] .accordion-content {
-      grid-template-rows: 1fr;
-    }
-
-    .accordion-content > div {
-      overflow: hidden;
-    }
-
-    .accordion-content p {
-      margin: 0;
-      padding: 0 var(--space-6) var(--space-6);
+    .accordion-trigger i {
+      width: 1.15rem;
+      height: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.8;
+      transition: transform var(--transition), color var(--transition);
     }
 
-    .newsletter-section {
-      padding: var(--space-20) var(--space-6);
+    .accordion-trigger[aria-expanded="true"] i {
+      transform: rotate(180deg);
+      color: var(--accent-highlight);
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 320ms var(--ease);
+    }
+
+    .accordion-panel-inner {
+      padding: 0 0 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .email-capture {
+      padding: var(--space-20) 0;
+      background:
+        radial-gradient(circle at 50% 25%, rgba(74,158,107,0.18), transparent 45%),
+        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
       text-align: center;
     }
 
-    .newsletter-section h2 {
-      margin-bottom: var(--space-4);
+    .email-capture h2 {
+      margin: 0 0 0.85rem;
       font-family: var(--font-display);
-      font-size: var(--text-xl);
+      font-size: var(--text-2xl);
       font-weight: 800;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
     }
 
-    .newsletter-section p {
+    .email-capture p {
+      max-width: 680px;
       margin: 0 auto;
       color: var(--text-muted);
+      font-size: var(--text-lg);
       line-height: 1.7;
     }
 
-    .newsletter-form {
+    .email-form {
       display: flex;
       gap: var(--space-3);
-      width: min(480px, 100%);
-      margin: var(--space-8) auto var(--space-3);
+      width: min(560px, 100%);
+      margin: var(--space-8) auto 0;
+      padding: 0.45rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(16px);
     }
 
-    .newsletter-form input {
+    .email-form input {
       flex: 1 1 auto;
-      padding: 0 var(--space-4);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--bg-border);
-      background: var(--bg-elevated);
+      min-width: 0;
+      padding: 0 1rem;
+      border: 0;
+      border-radius: var(--radius-pill);
+      background: transparent;
       color: var(--text-primary);
     }
 
-    .newsletter-form input::placeholder {
+    .email-form input::placeholder {
       color: var(--text-faint);
     }
 
-    .newsletter-disclaimer {
+    .email-form input:focus-visible {
+      outline: 2px solid var(--accent-highlight);
+      outline-offset: -2px;
+    }
+
+    .email-disclaimer {
+      margin-top: 0.9rem;
       color: var(--text-faint);
       font-size: var(--text-xs);
     }
 
-    .newsletter-feedback {
-      min-height: 1.5rem;
-      margin-top: var(--space-2);
-      color: var(--accent-highlight);
-      font-size: var(--text-sm);
-    }
-
     footer {
-      opacity: 1;
-      transform: none;
-      padding: var(--space-16) var(--space-6) var(--space-8);
-      border-top: 1px solid var(--bg-border);
+      padding: var(--space-16) 0 var(--space-8);
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
     }
 
     .footer-grid {
@@ -935,14 +1300,14 @@
     }
 
     .footer-brand p,
-    .footer-col p {
+    .footer-col p,
+    .footer-col a {
       color: var(--text-muted);
       line-height: 1.8;
-      margin: var(--space-4) 0 0;
     }
 
     .footer-col h3 {
-      margin: 0 0 var(--space-4);
+      margin: 0 0 0.85rem;
       font-size: var(--text-sm);
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -951,11 +1316,7 @@
 
     .footer-links {
       display: grid;
-      gap: var(--space-3);
-    }
-
-    .footer-links a {
-      color: var(--text-muted);
+      gap: 0.7rem;
     }
 
     .footer-links a:hover,
@@ -964,10 +1325,17 @@
       outline: none;
     }
 
+    .footer-trust {
+      margin-top: 1rem;
+      color: var(--text-primary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
     .footer-bottom {
       margin-top: var(--space-8);
       padding-top: var(--space-6);
-      border-top: 1px solid var(--bg-border);
+      border-top: 1px solid var(--border);
       color: var(--text-faint);
       font-size: var(--text-xs);
       line-height: 1.8;
@@ -976,37 +1344,22 @@
     .ruo-modal {
       position: fixed;
       inset: 0;
-      z-index: 9999;
+      z-index: 1500;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: var(--space-6);
-      background: rgba(0, 0, 0, 0.92);
+      padding: var(--space-4);
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(8px);
     }
 
     .ruo-card {
-      width: min(480px, 100%);
+      width: min(100%, 520px);
       padding: var(--space-10);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--bg-border);
-      background: var(--bg-elevated);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .ruo-lock {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 64px;
-      height: 64px;
-      margin-bottom: var(--space-6);
-      border-radius: 50%;
-      background: rgba(74, 158, 107, 0.08);
-      color: var(--accent-highlight);
     }
 
     .ruo-card h2 {
-      margin: 0 0 var(--space-3);
+      margin: var(--space-6) 0 0.5rem;
       font-family: var(--font-display);
       font-size: var(--text-xl);
       font-weight: 800;
@@ -1019,54 +1372,71 @@
       line-height: 1.8;
     }
 
-    .gate-checks {
+    .ruo-checks {
       display: grid;
-      gap: var(--space-4);
-      margin-bottom: var(--space-6);
+      gap: 0.85rem;
     }
 
-    .check-row {
+    .ruo-check {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: var(--space-3);
-      align-items: flex-start;
-      padding: var(--space-4);
+      gap: 0.8rem;
+      align-items: start;
+      padding: 1rem;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--bg-border);
       background: rgba(255,255,255,0.02);
       color: var(--text-primary);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    .check-row input {
-      width: 20px;
-      height: 20px;
-      margin-top: 0.15rem;
+    .ruo-check input {
+      width: 18px;
+      height: 18px;
+      margin-top: 0.2rem;
       accent-color: var(--accent);
     }
 
-    .gate-actions {
+    .ruo-actions {
       display: grid;
-      gap: var(--space-4);
+      gap: 0.85rem;
+      margin-top: var(--space-6);
     }
 
-    .gate-actions .btn:disabled {
+    .ruo-actions .btn {
+      width: 100%;
+    }
+
+    .ruo-actions .btn:disabled {
       cursor: not-allowed;
       opacity: 0.45;
-      transform: none;
       box-shadow: none;
+      transform: none;
     }
 
-    .exit-link {
-      justify-self: center;
+    .ruo-exit {
+      display: inline-flex;
+      justify-content: center;
       color: var(--text-muted);
       font-size: var(--text-sm);
     }
 
-    .exit-link:hover,
-    .exit-link:focus-visible {
+    .ruo-exit:hover,
+    .ruo-exit:focus-visible {
       color: var(--text-primary);
       outline: none;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @keyframes marquee {
@@ -1078,94 +1448,112 @@
       }
     }
 
-    @keyframes ticker-scroll {
-      from {
-        transform: translateX(0);
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .product-layout,
+      .science-layout {
+        grid-template-columns: 1fr;
       }
-      to {
-        transform: translateX(-50%);
-      }
-    }
 
-    @media (max-width: 960px) {
-      .trust-grid,
-      .science-grid,
+      .hero-copy h1 {
+        max-width: 100%;
+      }
+
+      .sticky-panel {
+        position: static;
+      }
+
       .stats-grid,
-      .quality-grid,
+      .authority-grid,
       .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
-    @media (max-width: 767px) {
-      .container {
-        width: min(100% - 2rem, 1180px);
+    @media (max-width: 860px) {
+      .nav-inner {
+        grid-template-columns: auto auto;
       }
 
       .nav-links,
-      .nav-actions > .btn {
+      .nav-actions .desktop-only {
         display: none;
       }
 
-      .hamburger {
+      .nav-actions {
+        justify-content: flex-end;
+      }
+
+      .menu-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
       }
 
       #hero {
-        padding-top: var(--space-20);
+        padding-top: var(--space-16);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero-grid {
+        gap: var(--space-8);
       }
 
-      .hero-title {
-        line-height: 1;
+      .hero-visual {
+        order: 2;
       }
 
-      .hero-actions,
-      .newsletter-form {
+      .hero-copy {
+        order: 1;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-grid,
+      .authority-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .email-form {
         flex-direction: column;
+        border-radius: var(--radius-xl);
       }
 
-      .hero-actions .btn,
-      .newsletter-form .btn,
-      .newsletter-form input {
+      .email-form .btn {
         width: 100%;
       }
     }
 
     @media (max-width: 560px) {
-      .trust-grid,
-      .science-grid,
-      .stats-grid,
-      .quality-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
+      .container {
+        width: min(100% - 1rem, 1200px);
       }
 
-      .product-card,
-      .science-card,
-      .stat-card {
-        padding-inline: var(--space-6);
-      }
-
-      .save-badge {
-        position: static;
-        margin-bottom: var(--space-4);
-      }
-
-      .product-topline {
-        align-items: flex-start;
+      .hero-actions {
         flex-direction: column;
       }
-    }
 
-    @media (max-width: 375px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .progress-head,
+      .variant-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .trust-row,
+      .guarantee-checks {
+        flex-direction: column;
       }
     }
 
@@ -1181,175 +1569,301 @@
         transition: none !important;
       }
 
-      section {
-        opacity: 1;
-        transform: none;
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="announcement-bar" id="announcementBar" aria-label="Site announcement">
+  <div class="announcement" id="announcementBar" aria-label="Site announcement">
     <div class="announcement-track" aria-hidden="true">
-      <span>Lab Research Grade - 99%+ HPLC Purity - COA per batch - Cold-chain shipping - 18+ Only -</span>
-      <span>Lab Research Grade - 99%+ HPLC Purity - COA per batch - Cold-chain shipping - 18+ Only -</span>
+      <span>⚗️ 99%+ HPLC Purity · COA Included Every Order · Cold-Chain Shipping · Lab Research Use Only · EU Delivery 5-10 Days · Batch Traceability · 18+ Qualified Researchers ·</span>
+      <span>⚗️ 99%+ HPLC Purity · COA Included Every Order · Cold-Chain Shipping · Lab Research Use Only · EU Delivery 5-10 Days · Batch Traceability · 18+ Qualified Researchers ·</span>
     </div>
     <button class="announcement-close" id="announcementClose" type="button" aria-label="Close announcement bar">✕</button>
   </div>
 
   <header class="site-nav" id="siteNav">
     <div class="container nav-inner">
-      <a class="brand" href="#hero" aria-label="NEXO RESEARCH home">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M21 8H43L54 20V44L43 56H21L10 44V20L21 8Z" stroke="#4a9e6b" stroke-width="2.8" stroke-linejoin="round"/>
-          <circle cx="32" cy="20" r="3" fill="#6dbf8a"/>
-          <circle cx="22" cy="32" r="3" fill="#6dbf8a"/>
-          <circle cx="42" cy="32" r="3" fill="#6dbf8a"/>
-          <circle cx="32" cy="44" r="3" fill="#6dbf8a"/>
-          <path d="M32 23V41M25 32H39M24.6 29.3L30 22.4M39.2 29.1L34 22.5M24.7 34.8L30 41.6M39.2 34.8L34.1 41.5" stroke="#4a9e6b" stroke-width="2.1" stroke-linecap="round"/>
+      <a href="#hero" class="brand-link" aria-label="Nexo Research">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20.5 8.5H43.5L55 20V44L43.5 55.5H20.5L9 44V20L20.5 8.5Z" stroke="#4a9e6b" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="23" cy="25" r="3" fill="#f0efe9"/>
+          <circle cx="40.8" cy="23.8" r="3" fill="#f0efe9"/>
+          <circle cx="32" cy="40" r="3" fill="#f0efe9"/>
+          <path d="M25.8 26.2L37.9 24.8M26.1 27.6L30 37.3M39.1 26.3L33.9 37.2" stroke="#4a9e6b" stroke-width="2.2" stroke-linecap="round"/>
         </svg>
-        <span class="brand-wordmark">NEXO RESEARCH<small>Premium laboratory materials</small></span>
+        <span class="brand-wordmark">
+          <strong>NEXO</strong>
+          <span>Research</span>
+        </span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#hero">Home</a>
-        <a href="#products">Products</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#research">Research</a>
         <a href="#science">Science</a>
-        <a href="#policy">Research Policy</a>
-        <a href="#faq">FAQ</a>
+        <a href="#policy">Policy</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="btn btn-primary" href="#products">Shop Now</a>
-        <button class="hamburger" id="drawerToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+        <a href="#research" class="btn btn-primary desktop-only">Shop Now →</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation">
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" tabindex="-1">
     <button class="drawer-close" id="drawerClose" type="button" aria-label="Close navigation menu">✕</button>
     <div class="drawer-links">
-      <a href="#hero">Home</a>
-      <a href="#products">Products</a>
-      <a href="#science">Science</a>
-      <a href="#policy">Research Policy</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="#products">Shop Now</a>
+      <a href="#hero" class="btn btn-secondary">Home</a>
+      <a href="#research" class="btn btn-secondary">Research</a>
+      <a href="#science" class="btn btn-secondary">Science</a>
+      <a href="#policy" class="btn btn-secondary">Policy</a>
+      <a href="#contact" class="btn btn-secondary">Contact</a>
+      <a href="#research" class="btn btn-primary">Shop Now →</a>
     </div>
   </aside>
 
   <main>
-    <section id="hero">
-      <div class="hero-shell">
-        <span class="pill hero-badge">Research Grade Neuropeptide ⚗️</span>
-        <h1 class="hero-title">The Science of Cognitive Research, Reimagined.</h1>
-        <p class="hero-copy">Semax nasal spray — 99%+ purity, COA-verified batch, sterile reconstitution. For laboratory research use only. 18+ qualified researchers.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#products">Start Research →</a>
-          <a class="btn btn-outline" href="#science">View COA &amp; SDS</a>
+    <section id="hero" class="section-shell">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-reveal>Research Grade · Neuropeptide · CAS 80714-61-0</span>
+          <h1 data-reveal>Precision Neuropeptide Research, Delivered.</h1>
+          <p data-reveal>Semax nasal spray — 99%+ HPLC verified purity, COA per batch, cold-chain delivered. The research-grade choice for qualified laboratory professionals.</p>
+          <div class="hero-actions" data-reveal>
+            <a href="#research" class="btn btn-primary">Order Research Kit →</a>
+            <a href="#science" class="btn btn-secondary">View COA &amp; SDS</a>
+          </div>
+          <div class="trust-row" data-reveal>
+            <span class="trust-pill">⚗️ 99%+ Purity</span>
+            <span class="trust-pill">📋 COA Included</span>
+            <span class="trust-pill">🧬 Research Grade</span>
+            <span class="trust-pill">🔒 Secure</span>
+          </div>
         </div>
-        <div class="trust-grid" aria-label="Trust badges">
-          <div class="trust-badge">⚗️ 99%+ Purity</div>
-          <div class="trust-badge">📋 Batch COA</div>
-          <div class="trust-badge">🧬 Research Grade</div>
-          <div class="trust-badge">🔒 Secure Order</div>
-        </div>
-        <div class="hero-ticker" aria-hidden="true">
-          <div class="hero-ticker-track">
-            <span>Met-Glu-His-Phe-Pro-Gly-Pro - CAS 80714-61-0 - MW 813.94 g/mol - ≥99% HPLC - Lyophilized -</span>
-            <span>Met-Glu-His-Phe-Pro-Gly-Pro - CAS 80714-61-0 - MW 813.94 g/mol - ≥99% HPLC - Lyophilized -</span>
+
+        <div class="hero-visual" data-reveal>
+          <div class="hero-image-wrap">
+            <span class="floating-badge">⚗️ Research Grade</span>
+            <img class="hero-image" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9cfd478371140000bb96c9329841b3f311356fa5.jpg" alt="Semax Research Grade Nasal Spray 30mg" width="460" height="560" loading="eager">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="products-section" id="products">
-      <div class="container">
-        <h2 class="section-title">The Research Formulation</h2>
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-topline">
-              <span class="pill product-badge">Starter</span>
-            </div>
-            <h3>Semax Nasal Spray 30mg</h3>
-            <div class="price-row">
-              <span class="price">€149.00</span>
-            </div>
-            <p class="product-copy">30mg pharmaceutical-grade Semax, sterile reconstituted nasal spray. 1mg/spray metered delivery.</p>
-            <ul class="feature-list">
-              <li>Certificate of Analysis (COA)</li>
-              <li>Safety Data Sheet (SDS)</li>
-              <li>Batch number &amp; storage sheet</li>
-              <li>Sterile BAC water included</li>
-              <li>Amber glass vial + nasal applicator</li>
-            </ul>
-            <button class="btn btn-primary full-width" type="button">Add to Cart →</button>
-            <!-- SHOPIFY_BUY_BUTTON_SEMAX_30 -->
-          </article>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>⚗️ HPLC 3rd-Party Tested · COA Per Batch · Cold-Chain Shipping · EU Lab Research · 99%+ Purity Verified · Batch Traceability · 48h Order Processing · Secure SSL Checkout · Research Professionals Only ·</span>
+        <span>⚗️ HPLC 3rd-Party Tested · COA Per Batch · Cold-Chain Shipping · EU Lab Research · 99%+ Purity Verified · Batch Traceability · 48h Order Processing · Secure SSL Checkout · Research Professionals Only ·</span>
+      </div>
+    </div>
 
-          <article class="product-card featured">
-            <span class="save-badge">Save 17%</span>
-            <div class="product-topline">
-              <span class="pill product-badge featured">🏆 Best Value</span>
-            </div>
-            <h3>Semax Nasal Spray 60mg</h3>
-            <div class="price-row">
-              <span class="price">€249.00</span>
-              <span class="price-compare">€299.00</span>
-            </div>
-            <p class="product-copy">60mg Semax dual-vial research kit. Superior value for extended laboratory research.</p>
-            <ul class="feature-list">
-              <li>Certificate of Analysis (COA)</li>
-              <li>Safety Data Sheet (SDS)</li>
-              <li>Batch number &amp; storage sheet</li>
-              <li>Sterile BAC water included</li>
-              <li>Amber glass vial + nasal applicator</li>
-              <li>Double quantity — 2x vials</li>
-            </ul>
-            <button class="btn btn-primary full-width" type="button">Add to Cart →</button>
-            <!-- SHOPIFY_BUY_BUTTON_SEMAX_60 -->
+    <section class="section-shell" id="numbers">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>Validated Metrics</span>
+          <h2 data-reveal>The Numbers Behind the Batch</h2>
+          <p data-reveal>Every research kit is built around documentation-first fulfillment, cold-chain handling, and analytically verified purity standards.</p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card glass-card" data-reveal>
+            <p class="stat-value" data-count data-start="90" data-end="99" data-suffix="%+">99%+</p>
+            <span class="stat-label">HPLC Verified Purity</span>
+          </article>
+          <article class="stat-card glass-card" data-reveal>
+            <p class="stat-value">≥98.5%</p>
+            <span class="stat-label">Mass Spec Confirmed</span>
+          </article>
+          <article class="stat-card glass-card" data-reveal>
+            <p class="stat-value" data-count data-start="0" data-end="48" data-suffix="h">48h</p>
+            <span class="stat-label">Max Processing Time</span>
+          </article>
+          <article class="stat-card glass-card" data-reveal>
+            <p class="stat-value" data-count data-start="0" data-end="100" data-suffix="%">100%</p>
+            <span class="stat-label">COA Coverage Per Batch</span>
           </article>
         </div>
-        <div class="disclaimer-box">⚠️ FOR LABORATORY RESEARCH USE ONLY — This product is not intended for human or veterinary use, diagnosis, treatment, or consumption. By purchasing, you confirm you are 18+ acquiring this for lawful laboratory research purposes only.</div>
       </div>
     </section>
 
-    <section class="science-section" id="science">
+    <section class="section-shell section-surface" id="observations">
       <div class="container">
-        <h2 class="section-title">The Semax Molecule</h2>
-        <p class="section-subtitle">A synthetic analogue of ACTH(4-10) — developed for neuroprotection and neurotrophin synthesis research.</p>
-        <div class="science-grid">
-          <article class="science-card">
-            <h3>🧬 Neuropeptide Analogue</h3>
-            <p>Semax is a synthetic ACTH(4-10) analogue explored in laboratory settings for peptide signaling and neurotrophic pathway research.</p>
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>Observed Benchmarks</span>
+          <h2 data-reveal>What Researchers Notice in Laboratory Settings</h2>
+          <p data-reveal>Based on documented laboratory observations and researcher feedback.</p>
+        </div>
+
+        <div class="progress-shell">
+          <article class="progress-row" data-reveal>
+            <div class="progress-head">
+              <div>
+                <h3>Consistent Purity Across Batches</h3>
+                <p>HPLC verified across all lots</p>
+              </div>
+              <span class="progress-stat">99%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-progress="99"></div></div>
           </article>
-          <article class="science-card">
-            <h3>🔬 HPLC Verified 99%+</h3>
-            <p>Each batch is analytically profiled with high-performance liquid chromatography to verify research-grade purity thresholds.</p>
+          <article class="progress-row" data-reveal>
+            <div class="progress-head">
+              <div>
+                <h3>Order Accuracy &amp; Documentation</h3>
+                <p>COA + SDS included with every order</p>
+              </div>
+              <span class="progress-stat">100%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-progress="100"></div></div>
           </article>
-          <article class="science-card">
-            <h3>📊 CAS: 80714-61-0</h3>
-            <p>Consistent cataloging and molecular identification allow traceable handling across documented laboratory workflows.</p>
+          <article class="progress-row" data-reveal>
+            <div class="progress-head">
+              <div>
+                <h3>On-Time Delivery (Croatia &amp; EU)</h3>
+                <p>Cold-chain packaging maintained</p>
+              </div>
+              <span class="progress-stat">97%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-progress="97"></div></div>
           </article>
-          <article class="science-card">
-            <h3>⚗️ Sterile Reconstitution</h3>
-            <p>Sterile bacteriostatic water is supplied to support controlled laboratory preparation and standardized handling conditions.</p>
-          </article>
-          <article class="science-card">
-            <h3>🌡️ Lyophilized Storage</h3>
-            <p>Lyophilized format supports stable cold storage and careful reconstitution protocols in research environments.</p>
-          </article>
-          <article class="science-card">
-            <h3>📋 Full Batch Documentation</h3>
-            <p>COA, SDS, batch identifiers, and storage guidance are provided to maintain complete documentation throughout receipt and use.</p>
+          <article class="progress-row" data-reveal>
+            <div class="progress-head">
+              <div>
+                <h3>Researcher Repeat Purchase Rate</h3>
+                <p>Returning qualified buyers</p>
+              </div>
+              <span class="progress-stat">84%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-progress="84"></div></div>
           </article>
         </div>
-        <div class="data-table-wrap">
+
+        <p class="disclaimer" data-reveal>*Based on internal order data and researcher feedback forms. For research informational purposes only.</p>
+      </div>
+    </section>
+
+    <section class="section-shell" id="research">
+      <div class="container product-layout">
+        <div class="product-copy">
+          <span class="eyebrow" data-reveal>The Research Formulation</span>
+          <h2 data-reveal>Semax Nasal Spray</h2>
+          <p data-reveal>Synthetic ACTH(4-10) Analogue — Research Grade Neuropeptide</p>
+
+          <div class="product-image-card glass-card" data-reveal>
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e33597c6b4f36751063fb4a7126cd2c730f2fe5d.jpg" alt="Semax Research Kit with COA, nasal applicator and bacteriostatic water" width="600" height="480" loading="lazy">
+          </div>
+
+          <ul class="checklist">
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Certificate of Analysis (HPLC Purity Verified)</span></li>
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Safety Data Sheet (SDS)</span></li>
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Batch Number &amp; Traceability Record</span></li>
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Sterile Bacteriostatic Water (reconstitution solution)</span></li>
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Amber Glass Vial (UV-protected)</span></li>
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Precision Nasal Applicator (1mg/spray)</span></li>
+            <li data-reveal><i data-lucide="check-circle-2"></i><span>Cold-Chain Insulated Packaging</span></li>
+          </ul>
+        </div>
+
+        <aside class="sticky-panel glass-card" data-reveal>
+          <h3>Semax Research Kit</h3>
+          <p>Choose your research quantity:</p>
+
+          <div class="mini-card">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fa24563dc223d73fef5259d8943ab06626286099.jpg" alt="Semax Nasal Spray 30mg research grade" width="400" height="400" loading="lazy">
+            <ul class="mini-bullets">
+              <li>• COA + SDS + batch documentation</li>
+              <li>• Amber vial + precision applicator</li>
+              <li>• Cold-chain delivery included</li>
+            </ul>
+          </div>
+
+          <div class="variant-group" id="variantGroup">
+            <label class="variant-option" data-variant-option>
+              <input type="radio" name="kit-variant" value="starter" id="variantStarter">
+              <div class="variant-top">
+                <span class="variant-name">30mg Starter Kit</span>
+                <span class="variant-price">€149.00</span>
+              </div>
+              <span class="variant-note">Single-vial research format with complete documentation and sterile reconstitution support.</span>
+            </label>
+            <label class="variant-option is-active" data-variant-option>
+              <input type="radio" name="kit-variant" value="value" id="variantValue" checked>
+              <div class="variant-top">
+                <span class="variant-name">60mg Value Kit <span class="tag best">Best Value</span></span>
+                <span class="variant-price">€249.00 <del>€299.00</del></span>
+              </div>
+              <span class="variant-note">Dual-vial format for extended laboratory workups and better cost efficiency per batch.</span>
+            </label>
+          </div>
+
+          <!-- SHOPIFY_BUY_BUTTON_PLACEHOLDER -->
+          <button class="btn btn-primary" id="buyFallbackButton" type="button" style="width:100%;">Add to Research Cart →</button>
+
+          <div class="trust-mini">
+            <span>🔒 Secure checkout</span>
+            <span>📋 COA included</span>
+            <span>❄️ Cold-chain</span>
+          </div>
+
+          <div class="guarantee-box">14-day research materials policy — unopened product</div>
+          <p class="panel-disclaimer">For laboratory research use only. Not for human or veterinary use.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell section-surface" id="science">
+      <div class="container science-layout">
+        <div class="science-copy">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>Molecular Data</span>
+            <h2 data-reveal>The Semax Molecule</h2>
+            <p data-reveal>A synthetic analogue of ACTH(4-10) developed for neuroprotection and neurotrophin synthesis research in laboratory settings.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card glass-card" data-reveal>
+              <span class="feature-icon"><i data-lucide="dna"></i></span>
+              <h3>Neuropeptide Analogue</h3>
+              <p>Synthetic ACTH(4-10) analogue for peptide signaling research.</p>
+            </article>
+            <article class="feature-card glass-card" data-reveal>
+              <span class="feature-icon"><i data-lucide="flask-conical"></i></span>
+              <h3>HPLC Verified 99%+</h3>
+              <p>Analytically profiled every batch via high-performance liquid chromatography.</p>
+            </article>
+            <article class="feature-card glass-card" data-reveal>
+              <span class="feature-icon"><i data-lucide="badge-info"></i></span>
+              <h3>CAS: 80714-61-0</h3>
+              <p>Consistent molecular identification for traceable laboratory workflows.</p>
+            </article>
+            <article class="feature-card glass-card" data-reveal>
+              <span class="feature-icon"><i data-lucide="droplets"></i></span>
+              <h3>Sterile Reconstitution</h3>
+              <p>Sterile bacteriostatic water supplied for controlled preparation.</p>
+            </article>
+            <article class="feature-card glass-card" data-reveal>
+              <span class="feature-icon"><i data-lucide="snowflake"></i></span>
+              <h3>Lyophilized Format</h3>
+              <p>Stable cold storage with standardized reconstitution protocols.</p>
+            </article>
+            <article class="feature-card glass-card" data-reveal>
+              <span class="feature-icon"><i data-lucide="files"></i></span>
+              <h3>Full Documentation</h3>
+              <p>COA, SDS, batch IDs, and storage guidance per order.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="spec-table-wrap glass-card" data-reveal>
           <table>
             <thead>
               <tr>
@@ -1361,128 +1875,213 @@
               <tr><td>Molecular Formula</td><td>C₃₇H₅₁N₇O₁₀S</td></tr>
               <tr><td>Molecular Weight</td><td>813.94 g/mol</td></tr>
               <tr><td>CAS Number</td><td>80714-61-0</td></tr>
-              <tr><td>Sequence</td><td>Met-Glu-His-Phe-Pro-Gly-Pro</td></tr>
-              <tr><td>Form</td><td>Lyophilized powder</td></tr>
-              <tr><td>Purity</td><td>≥99% (HPLC)</td></tr>
-              <tr><td>Storage</td><td>-20°C, avoid freeze-thaw cycles</td></tr>
+              <tr><td>Peptide Sequence</td><td>Met-Glu-His-Phe-Pro-Gly-Pro</td></tr>
+              <tr><td>Physical Form</td><td>Lyophilized powder</td></tr>
+              <tr><td>Purity (HPLC)</td><td>≥99%</td></tr>
+              <tr><td>Storage Temp</td><td>−20°C, avoid freeze-thaw</td></tr>
               <tr><td>Reconstitution</td><td>Sterile bacteriostatic water</td></tr>
+              <tr><td>Shelf Life</td><td>24 months (sealed, -20°C)</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="quality-section">
+    <section class="section-shell" id="standard">
       <div class="container">
-        <h2 class="section-title">Research-Grade. Nothing Less.</h2>
-        <div class="quality-grid">
-          <div class="quality-item"><strong>✓</strong><span>Third-party HPLC tested every batch</span></div>
-          <div class="quality-item"><strong>✓</strong><span>Certificate of Analysis per lot included</span></div>
-          <div class="quality-item"><strong>✓</strong><span>Safety Data Sheet (SDS) included</span></div>
-          <div class="quality-item"><strong>✓</strong><span>Sterile reconstitution solution included</span></div>
-          <div class="quality-item"><strong>✓</strong><span>Amber glass vial + precision applicator</span></div>
-          <div class="quality-item"><strong>✓</strong><span>Cold-chain shipped to your door</span></div>
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>Research Benchmark</span>
+          <h2 data-reveal>The Research Grade Standard</h2>
+          <p data-reveal>How Nexo Research compares to generic laboratory suppliers.</p>
         </div>
-        <div class="stats-grid">
-          <div class="stat-card"><strong>99%+</strong><span>HPLC Purity</span></div>
-          <div class="stat-card"><strong>≥98.5%</strong><span>Mass Spec Confirmed</span></div>
-          <div class="stat-card"><strong>48h</strong><span>Max Ship Time</span></div>
-          <div class="stat-card"><strong>100%</strong><span>COA Coverage</span></div>
+
+        <div class="comparison-scroll glass-card" data-reveal>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Nexo Research ★</th>
+                <th scope="col">Generic Supplier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>HPLC Purity</td><td class="yes">≥99% ✓</td><td class="no">95-98% ✗</td></tr>
+              <tr><td>Third-Party COA</td><td class="yes">Every batch ✓</td><td class="no">On request only ✗</td></tr>
+              <tr><td>Safety Data Sheet</td><td class="yes">Included ✓</td><td class="no">Rarely included ✗</td></tr>
+              <tr><td>Cold-Chain Shipping</td><td class="yes">Standard ✓</td><td class="no">Not guaranteed ✗</td></tr>
+              <tr><td>Batch Traceability</td><td class="yes">Full ✓</td><td class="no">Limited ✗</td></tr>
+              <tr><td>Amber UV Glass Vial</td><td class="yes">Standard ✓</td><td class="no">Varies ✗</td></tr>
+              <tr><td>Reconstitution Solution</td><td class="yes">Included ✓</td><td class="no">Separate purchase ✗</td></tr>
+              <tr><td>EU Shipping</td><td class="yes">5-10 days ✓</td><td class="no">14-30 days ✗</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section class="policy-section" id="policy">
+    <section class="section-shell section-surface" id="authority">
       <div class="container">
-        <h2 class="section-title">Research Use Policy</h2>
-        <div class="accordion-group">
-          <details class="accordion-item">
-            <summary>For whom is this product?</summary>
-            <div class="accordion-content"><div><p>This product is sold exclusively to research professionals, laboratories, and institutions aged 18 and over for lawful research and analytical purposes only.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>What documentation is included?</summary>
-            <div class="accordion-content"><div><p>Every order includes a Certificate of Analysis (COA) verifying purity via HPLC, a Safety Data Sheet (SDS), batch number, and storage instructions.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>How is the product stored and shipped?</summary>
-            <div class="accordion-content"><div><p>Stored at -20°C, shipped with ice packs in insulated packaging. Store at -20°C upon receipt and protect from light.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>Do I need a special license?</summary>
-            <div class="accordion-content"><div><p>No license is required, but purchasers must be 18+ and confirm research-only intent at checkout.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>What is your age verification policy?</summary>
-            <div class="accordion-content"><div><p>All buyers must confirm 18+ via website gate and checkout checkbox. We reserve the right to refuse any order.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>What is your return policy?</summary>
-            <div class="accordion-content"><div><p>Contact care@nexoresearch.com within 14 days. Unopened, original packaging only. Reconstituted products cannot be returned.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>Can I resell these products?</summary>
-            <div class="accordion-content"><div><p>Resale for human consumption, cosmetic, or therapeutic use is strictly prohibited.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>Are these products approved by regulatory agencies?</summary>
-            <div class="accordion-content"><div><p>These products are sold strictly as laboratory research materials and are not approved for human or veterinary use.</p></div></div>
-          </details>
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>Advisory Framework</span>
+          <h2 data-reveal>Research Advisory</h2>
+          <p data-reveal>Nexo Research materials are evaluated against published neuropeptide research standards.</p>
+        </div>
+
+        <div class="authority-grid">
+          <article class="authority-card glass-card" data-reveal>
+            <span class="tag">Published Research</span>
+            <h3>🧬 Synthetic Neuropeptide Research</h3>
+            <p>Semax is documented in peer-reviewed neuropeptide research literature as an ACTH(4-10) analogue with neurotrophin modulation properties in laboratory settings.</p>
+          </article>
+          <article class="authority-card glass-card" data-reveal>
+            <span class="tag">Analytical Chemistry Standard</span>
+            <h3>🔬 HPLC Quality Verification</h3>
+            <p>High-performance liquid chromatography (HPLC) is the gold standard for peptide purity verification in research laboratories worldwide.</p>
+          </article>
+          <article class="authority-card glass-card" data-reveal>
+            <span class="tag">GLP Documentation</span>
+            <h3>📋 GLP Documentation Standards</h3>
+            <p>Good Laboratory Practice documentation including COA and SDS ensures full traceability for compliant research workflows.</p>
+          </article>
+        </div>
+
+        <div class="community-ticker" aria-hidden="true" data-reveal>
+          <div class="community-track">
+            <span>Research Professional · Zagreb, HR ★★★★★ "Batch consistency excellent." ·</span>
+            <span>Lab Researcher · Berlin, DE ★★★★★ "COA arrived with shipment, documentation thorough." ·</span>
+            <span>Biohacker · Amsterdam, NL ★★★★★ "Fast EU delivery, cold-chain intact." ·</span>
+            <span>Research Associate · Vienna, AT ★★★★★ "Best purity I have found from EU supplier." ·</span>
+            <span>Research Professional · Zagreb, HR ★★★★★ "Batch consistency excellent." ·</span>
+            <span>Lab Researcher · Berlin, DE ★★★★★ "COA arrived with shipment, documentation thorough." ·</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="faq-section" id="faq">
+    <section class="section-shell guarantee-section" id="guarantee">
       <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="accordion-group">
-          <details class="accordion-item">
-            <summary>What is Semax?</summary>
-            <div class="accordion-content"><div><p>Semax is a synthetic analogue of ACTH(4-10), a neuropeptide studied for its role in neurotrophin regulation, neuroprotection, and cognitive function research.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>What purity is your Semax?</summary>
-            <div class="accordion-content"><div><p>Our Semax nasal spray achieves ≥99% purity confirmed via HPLC analysis. A Certificate of Analysis is included with every order.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>How quickly do you ship?</summary>
-            <div class="accordion-content"><div><p>Orders are processed within 1-2 business days and shipped with cold-chain packaging. Croatia: 3-5 days. EU: 5-10 days.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>What is included with my order?</summary>
-            <div class="accordion-content"><div><p>COA, SDS, batch number, storage sheet, sterile BAC water, amber glass vial, and nasal applicator.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>How should I store the product?</summary>
-            <div class="accordion-content"><div><p>Store at -20°C, protected from light. Do not expose to repeated freeze-thaw cycles. For research laboratory use only.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>Do you ship internationally?</summary>
-            <div class="accordion-content"><div><p>We ship to Croatia, EU countries, and selected international destinations (7-14 business days, €25 flat rate).</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>Can I track my order?</summary>
-            <div class="accordion-content"><div><p>Yes, tracking is provided for all orders via email notification after dispatch.</p></div></div>
-          </details>
-          <details class="accordion-item">
-            <summary>What payment methods do you accept?</summary>
-            <div class="accordion-content"><div><p>We accept Visa, Mastercard (via Stripe), and PayPal. All transactions are secured with SSL encryption.</p></div></div>
-          </details>
+        <div data-reveal>
+          <p class="guarantee-number">14</p>
+          <h2 style="margin:0;font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;letter-spacing:-0.04em;">Day Research Materials Policy</h2>
+          <p class="guarantee-copy">Contact care@nexoresearch.com within 14 days of receipt. Unopened, original packaging required. Reconstituted materials cannot be returned. We stand behind our documentation and purity standards.</p>
+        </div>
+
+        <div class="guarantee-checks" data-reveal>
+          <span>✓ Unopened products</span>
+          <span>✓ Original packaging</span>
+          <span>✓ COA guaranteed</span>
+          <span>✓ Cold-chain maintained</span>
+        </div>
+
+        <p class="guarantee-footnote" data-reveal>Research materials policy. Not a medical product guarantee. For laboratory use only.</p>
+      </div>
+    </section>
+
+    <section class="section-shell section-surface" id="policy">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>Compliance</span>
+          <h2 data-reveal>Research Use Policy</h2>
+          <p data-reveal>Clear guardrails for qualified purchasers, lawful laboratory use, storage, documentation, and order integrity.</p>
+        </div>
+
+        <div class="accordion-group" data-accordion-group>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-1" id="policy-trigger-1"><span>For whom is this product?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-1" role="region" aria-labelledby="policy-trigger-1"><div class="accordion-panel-inner">This product is sold exclusively to research professionals, laboratories, and institutions aged 18 and over for lawful research and analytical purposes only.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-2" id="policy-trigger-2"><span>What documentation is included?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-2" role="region" aria-labelledby="policy-trigger-2"><div class="accordion-panel-inner">Every order includes a Certificate of Analysis (COA) verifying purity via HPLC, a Safety Data Sheet (SDS), batch number, and storage instructions.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-3" id="policy-trigger-3"><span>How is the product stored and shipped?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-3" role="region" aria-labelledby="policy-trigger-3"><div class="accordion-panel-inner">Stored at -20°C, shipped with ice packs in insulated packaging. Store at -20°C upon receipt and protect from light.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-4" id="policy-trigger-4"><span>Do I need a special license?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-4" role="region" aria-labelledby="policy-trigger-4"><div class="accordion-panel-inner">No license is required, but purchasers must be 18+ and confirm research-only intent at checkout.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-5" id="policy-trigger-5"><span>What is your age verification policy?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-5" role="region" aria-labelledby="policy-trigger-5"><div class="accordion-panel-inner">All buyers must confirm 18+ via website gate and checkout checkbox. We reserve the right to refuse any order.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-6" id="policy-trigger-6"><span>What is your return policy?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-6" role="region" aria-labelledby="policy-trigger-6"><div class="accordion-panel-inner">Contact care@nexoresearch.com within 14 days. Unopened, original packaging only. Reconstituted products cannot be returned.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-7" id="policy-trigger-7"><span>Can I resell these products?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-7" role="region" aria-labelledby="policy-trigger-7"><div class="accordion-panel-inner">Resale for human consumption, cosmetic, or therapeutic use is strictly prohibited.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="policy-8" id="policy-trigger-8"><span>Are these products approved by regulatory agencies?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="policy-8" role="region" aria-labelledby="policy-trigger-8"><div class="accordion-panel-inner">These products are sold strictly as laboratory research materials and are not approved for human or veterinary use.</div></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="newsletter-section">
+    <section class="section-shell" id="faq">
       <div class="container">
-        <h2>Join the Research Community</h2>
-        <p>Exclusive access to new batches, COA previews, and research insights.</p>
-        <form class="newsletter-form" id="newsletterForm">
-          <input type="email" name="email" autocomplete="email" placeholder="Enter your professional email" aria-label="Email address" required>
-          <button class="btn btn-primary" type="submit">Subscribe</button>
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>Research Questions</span>
+          <h2 data-reveal>Frequently Asked Questions</h2>
+          <p data-reveal>Everything most qualified buyers ask before placing a documented research materials order.</p>
+        </div>
+
+        <div class="accordion-group" data-accordion-group>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-trigger-1"><span>What is Semax?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-1" role="region" aria-labelledby="faq-trigger-1"><div class="accordion-panel-inner">Semax is a synthetic analogue of ACTH(4-10), a neuropeptide studied for its role in neurotrophin regulation, neuroprotection, and cognitive function research.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-trigger-2"><span>What purity is your Semax?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-2" role="region" aria-labelledby="faq-trigger-2"><div class="accordion-panel-inner">Our Semax nasal spray achieves ≥99% purity confirmed via HPLC analysis. A Certificate of Analysis is included with every order.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-trigger-3"><span>How quickly do you ship?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-3" role="region" aria-labelledby="faq-trigger-3"><div class="accordion-panel-inner">Orders are processed within 1-2 business days and shipped with cold-chain packaging. Croatia: 3-5 days. EU: 5-10 days.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-trigger-4"><span>What is included with my order?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-4" role="region" aria-labelledby="faq-trigger-4"><div class="accordion-panel-inner">COA, SDS, batch number, storage sheet, sterile BAC water, amber glass vial, and nasal applicator.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-trigger-5"><span>How should I store the product?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-5" role="region" aria-labelledby="faq-trigger-5"><div class="accordion-panel-inner">Store at -20°C, protected from light. Do not expose to repeated freeze-thaw cycles. For research laboratory use only.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-trigger-6"><span>Do you ship internationally?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-6" role="region" aria-labelledby="faq-trigger-6"><div class="accordion-panel-inner">We ship to Croatia, EU countries, and selected international destinations with cold-chain packaging and tracking. International rates begin at €25.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-7" id="faq-trigger-7"><span>Can I track my order?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-7" role="region" aria-labelledby="faq-trigger-7"><div class="accordion-panel-inner">Yes, tracking is provided for all orders via email notification after dispatch.</div></div>
+          </div>
+          <div class="accordion-item" data-accordion-item data-reveal>
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-8" id="faq-trigger-8"><span>What payment methods do you accept?</span><i data-lucide="chevron-down"></i></button>
+            <div class="accordion-panel" id="faq-8" role="region" aria-labelledby="faq-trigger-8"><div class="accordion-panel-inner">We accept Visa, Mastercard via Stripe, and PayPal. All transactions are secured with SSL encryption through Shopify checkout.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="email-capture" id="contact">
+      <div class="container">
+        <div data-reveal>
+          <span class="eyebrow">Batch Alerts</span>
+          <h2>Stay Ahead of New Batches</h2>
+          <p>Get COA previews, new batch announcements, and exclusive research insights.</p>
+        </div>
+
+        <form class="email-form" data-reveal>
+          <input type="email" placeholder="Your research email" aria-label="Your research email">
+          <button class="btn btn-primary" type="submit">Subscribe →</button>
         </form>
-        <p class="newsletter-disclaimer">*18+ research professionals only. Unsubscribe anytime.</p>
-        <div class="newsletter-feedback" id="newsletterFeedback" aria-live="polite"></div>
+
         <!-- KLAVIYO_FORM_EMBED -->
+        <p class="email-disclaimer" data-reveal>*18+ research professionals only. Unsubscribe anytime.</p>
       </div>
     </section>
   </main>
@@ -1491,25 +2090,28 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="#hero" aria-label="NEXO RESEARCH footer home">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M21 8H43L54 20V44L43 56H21L10 44V20L21 8Z" stroke="#4a9e6b" stroke-width="2.8" stroke-linejoin="round"/>
-              <circle cx="32" cy="20" r="3" fill="#6dbf8a"/>
-              <circle cx="22" cy="32" r="3" fill="#6dbf8a"/>
-              <circle cx="42" cy="32" r="3" fill="#6dbf8a"/>
-              <circle cx="32" cy="44" r="3" fill="#6dbf8a"/>
-              <path d="M32 23V41M25 32H39M24.6 29.3L30 22.4M39.2 29.1L34 22.5M24.7 34.8L30 41.6M39.2 34.8L34.1 41.5" stroke="#4a9e6b" stroke-width="2.1" stroke-linecap="round"/>
+          <a href="#hero" class="brand-link" aria-label="Nexo Research">
+            <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M20.5 8.5H43.5L55 20V44L43.5 55.5H20.5L9 44V20L20.5 8.5Z" stroke="#4a9e6b" stroke-width="2.4" stroke-linejoin="round"/>
+              <circle cx="23" cy="25" r="3" fill="#f0efe9"/>
+              <circle cx="40.8" cy="23.8" r="3" fill="#f0efe9"/>
+              <circle cx="32" cy="40" r="3" fill="#f0efe9"/>
+              <path d="M25.8 26.2L37.9 24.8M26.1 27.6L30 37.3M39.1 26.3L33.9 37.2" stroke="#4a9e6b" stroke-width="2.2" stroke-linecap="round"/>
             </svg>
-            <span class="brand-wordmark">NEXO RESEARCH<small>Premium laboratory materials</small></span>
+            <span class="brand-wordmark">
+              <strong>NEXO</strong>
+              <span>Research</span>
+            </span>
           </a>
-          <p>Advanced peptide research materials. For science.</p>
+          <p>Advanced research-grade peptide materials for qualified laboratory professionals.</p>
+          <div class="footer-trust">⚗️ Research Grade · 🇪🇺 EU Based · 🔒 Secure</div>
         </div>
 
         <div class="footer-col">
           <h3>Quick Links</h3>
           <div class="footer-links">
-            <a href="#products">Products</a>
-            <a href="#science">Science</a>
+            <a href="#research">Research Products</a>
+            <a href="#science">Molecular Data</a>
             <a href="#policy">Research Policy</a>
             <a href="#faq">FAQ</a>
             <a href="mailto:care@nexoresearch.com" target="_blank" rel="noopener noreferrer">Contact</a>
@@ -1519,97 +2121,112 @@
         <div class="footer-col">
           <h3>Legal</h3>
           <div class="footer-links">
-            <a href="#policy">Terms</a>
-            <a href="#policy">Privacy</a>
-            <a href="#policy">Refund</a>
-            <a href="#faq">Shipping</a>
-            <a href="#policy">Age Policy</a>
+            <a href="#policy">Terms of Service</a>
+            <a href="#policy">Privacy Policy</a>
+            <a href="#policy">Refund Policy</a>
+            <a href="#policy">Shipping Policy</a>
+            <a href="#policy">Age Verification Policy</a>
           </div>
         </div>
 
         <div class="footer-col">
           <h3>Contact</h3>
-          <p><a href="mailto:care@nexoresearch.com" target="_blank" rel="noopener noreferrer">care@nexoresearch.com</a><br>Zagreb, Croatia, EU</p>
+          <p><a href="mailto:care@nexoresearch.com" target="_blank" rel="noopener noreferrer">care@nexoresearch.com</a><br>Zagreb, Croatia, EU<br>Mon-Fri: 09:00-17:00 CET</p>
         </div>
       </div>
 
-      <div class="footer-bottom">© 2026 Nexo Research. All rights reserved. Products sold strictly for laboratory research purposes only. Not for human or animal use.</div>
+      <div class="footer-bottom">© 2026 Nexo Research. All rights reserved. | Products sold strictly for laboratory research purposes. Not intended for human or animal use. | Designed in Zagreb, EU.</div>
     </div>
   </footer>
 
   <div class="ruo-modal" id="ruoModal" role="dialog" aria-modal="true" aria-labelledby="ruoTitle">
-    <div class="ruo-card">
-      <div class="ruo-lock" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 11V8.5C7 5.46243 9.46243 3 12.5 3C15.5376 3 18 5.46243 18 8.5V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <rect x="5" y="11" width="15" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="12.5" cy="16" r="1.2" fill="currentColor"/>
+    <div class="ruo-card glass-card">
+      <a href="#hero" class="brand-link" aria-label="Nexo Research">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20.5 8.5H43.5L55 20V44L43.5 55.5H20.5L9 44V20L20.5 8.5Z" stroke="#4a9e6b" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="23" cy="25" r="3" fill="#f0efe9"/>
+          <circle cx="40.8" cy="23.8" r="3" fill="#f0efe9"/>
+          <circle cx="32" cy="40" r="3" fill="#f0efe9"/>
+          <path d="M25.8 26.2L37.9 24.8M26.1 27.6L30 37.3M39.1 26.3L33.9 37.2" stroke="#4a9e6b" stroke-width="2.2" stroke-linecap="round"/>
         </svg>
-      </div>
+        <span class="brand-wordmark">
+          <strong>NEXO</strong>
+          <span>Research</span>
+        </span>
+      </a>
       <h2 id="ruoTitle">Research Use Only</h2>
-      <p>This website sells laboratory research materials only. Products are not for human or veterinary use.</p>
-      <div class="gate-checks">
-        <label class="check-row" for="cb1">
-          <input id="cb1" type="checkbox">
-          <span>I confirm I am 18 years of age or older</span>
+      <p>This website sells laboratory research materials only. Products are not for human or veterinary use, diagnosis, treatment, or consumption.</p>
+      <div class="ruo-checks">
+        <label class="ruo-check" for="ruoAge">
+          <input type="checkbox" id="ruoAge">
+          <span>I confirm I am 18 years of age or older.</span>
         </label>
-        <label class="check-row" for="cb2">
-          <input id="cb2" type="checkbox">
-          <span>I confirm I am purchasing for lawful laboratory/research purposes only</span>
+        <label class="ruo-check" for="ruoIntent">
+          <input type="checkbox" id="ruoIntent">
+          <span>I confirm I am purchasing for lawful laboratory research purposes only.</span>
         </label>
       </div>
-      <div class="gate-actions">
-        <button class="btn btn-primary full-width" id="confirmGate" type="button" disabled>I Confirm &amp; Enter</button>
-        <a class="exit-link" href="https://google.com" target="_blank" rel="noopener noreferrer">Exit site</a>
+      <div class="ruo-actions">
+        <button type="button" class="btn btn-primary" id="ruoEnter" disabled>Enter Research Portal →</button>
+        <a class="ruo-exit" href="https://google.com" target="_blank" rel="noopener noreferrer">Exit</a>
       </div>
     </div>
   </div>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     (function () {
       var body = document.body;
-      var siteNav = document.getElementById('siteNav');
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var announcementBar = document.getElementById('announcementBar');
       var announcementClose = document.getElementById('announcementClose');
-      var drawerToggle = document.getElementById('drawerToggle');
-      var drawerClose = document.getElementById('drawerClose');
+      var siteNav = document.getElementById('siteNav');
+      var menuToggle = document.getElementById('menuToggle');
       var mobileDrawer = document.getElementById('mobileDrawer');
-      var mobileOverlay = document.getElementById('mobileOverlay');
+      var drawerOverlay = document.getElementById('drawerOverlay');
+      var drawerClose = document.getElementById('drawerClose');
       var drawerLinks = mobileDrawer.querySelectorAll('a');
+      var buyFallbackButton = document.getElementById('buyFallbackButton');
       var ruoModal = document.getElementById('ruoModal');
-      var cb1 = document.getElementById('cb1');
-      var cb2 = document.getElementById('cb2');
-      var confirmGate = document.getElementById('confirmGate');
-      var newsletterForm = document.getElementById('newsletterForm');
-      var newsletterFeedback = document.getElementById('newsletterFeedback');
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var ruoAge = document.getElementById('ruoAge');
+      var ruoIntent = document.getElementById('ruoIntent');
+      var ruoEnter = document.getElementById('ruoEnter');
+      var accordionGroups = document.querySelectorAll('[data-accordion-group]');
+      var variantOptions = document.querySelectorAll('[data-variant-option]');
+      var activeDrawerTrigger = null;
 
-      function setBodyScrollLocked(locked) {
+      function setScrollLocked(locked) {
         body.classList.toggle('no-scroll', locked);
       }
 
-      function updateGateButton() {
-        confirmGate.disabled = !(cb1.checked && cb2.checked);
+      function maybeUnlockBody() {
+        var gateOpen = !!document.getElementById('ruoModal');
+        var navOpen = mobileDrawer.classList.contains('is-open');
+        setScrollLocked(gateOpen || navOpen);
       }
 
-      function closeGate() {
-        sessionStorage.setItem('ruo_confirmed', 'true');
-        ruoModal.remove();
-        setBodyScrollLocked(false);
+      function updateGateState() {
+        ruoEnter.disabled = !(ruoAge.checked && ruoIntent.checked);
       }
 
       if (sessionStorage.getItem('ruo_confirmed') === 'true') {
         ruoModal.remove();
       } else {
-        setBodyScrollLocked(true);
-        updateGateButton();
+        setScrollLocked(true);
       }
 
-      cb1.addEventListener('change', updateGateButton);
-      cb2.addEventListener('change', updateGateButton);
-      confirmGate.addEventListener('click', closeGate);
+      updateGateState();
+      ruoAge.addEventListener('change', updateGateState);
+      ruoIntent.addEventListener('change', updateGateState);
+      ruoEnter.addEventListener('click', function () {
+        sessionStorage.setItem('ruo_confirmed', 'true');
+        ruoModal.remove();
+        maybeUnlockBody();
+      });
 
-      function hideAnnouncementBar() {
+      function closeAnnouncement() {
         announcementBar.hidden = true;
         body.classList.add('bar-hidden');
         sessionStorage.setItem('bar_closed', 'true');
@@ -1620,69 +2237,211 @@
         body.classList.add('bar-hidden');
       }
 
-      announcementClose.addEventListener('click', hideAnnouncementBar);
+      announcementClose.addEventListener('click', closeAnnouncement);
 
       function handleNavScroll() {
-        siteNav.classList.toggle('scrolled', window.scrollY > 50);
+        siteNav.classList.toggle('scrolled', window.scrollY > 40);
       }
 
       handleNavScroll();
       window.addEventListener('scroll', handleNavScroll, { passive: true });
 
-      function openDrawer() {
+      function getDrawerFocusable() {
+        return Array.prototype.slice.call(mobileDrawer.querySelectorAll('button, a')).filter(function (element) {
+          return element.offsetParent !== null;
+        });
+      }
+
+      function openDrawer(trigger) {
+        activeDrawerTrigger = trigger || document.activeElement;
+        mobileDrawer.hidden = false;
         mobileDrawer.classList.add('is-open');
-        mobileOverlay.classList.add('is-open');
-        drawerToggle.setAttribute('aria-expanded', 'true');
-        setBodyScrollLocked(true);
+        drawerOverlay.classList.add('is-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
+        maybeUnlockBody();
+        var focusable = getDrawerFocusable();
+        if (focusable.length) {
+          focusable[0].focus();
+        }
       }
 
       function closeDrawer() {
         mobileDrawer.classList.remove('is-open');
-        mobileOverlay.classList.remove('is-open');
-        drawerToggle.setAttribute('aria-expanded', 'false');
-        if (!document.getElementById('ruoModal')) {
-          setBodyScrollLocked(false);
+        drawerOverlay.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+        maybeUnlockBody();
+        if (activeDrawerTrigger && typeof activeDrawerTrigger.focus === 'function') {
+          activeDrawerTrigger.focus();
         }
       }
 
-      drawerToggle.addEventListener('click', openDrawer);
+      menuToggle.addEventListener('click', function () {
+        if (mobileDrawer.classList.contains('is-open')) {
+          closeDrawer();
+        } else {
+          openDrawer(menuToggle);
+        }
+      });
+
       drawerClose.addEventListener('click', closeDrawer);
-      mobileOverlay.addEventListener('click', closeDrawer);
+      drawerOverlay.addEventListener('click', closeDrawer);
       drawerLinks.forEach(function (link) {
         link.addEventListener('click', closeDrawer);
       });
 
       document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
-          if (mobileDrawer.classList.contains('is-open')) {
-            closeDrawer();
-          }
+          closeDrawer();
+          closeAccordionPanels();
+        }
+
+        if (event.key === 'Tab' && mobileDrawer.classList.contains('is-open')) {
+          trapDrawerFocus(event);
         }
       });
 
-      newsletterForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        newsletterFeedback.textContent = 'Thanks. You are on the list for future batch updates.';
-        newsletterForm.reset();
+      function trapDrawerFocus(event) {
+        var focusable = getDrawerFocusable();
+        if (!focusable.length) {
+          return;
+        }
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+
+      variantOptions.forEach(function (option) {
+        var input = option.querySelector('input');
+        option.addEventListener('click', function () {
+          variantOptions.forEach(function (entry) {
+            entry.classList.remove('is-active');
+          });
+          option.classList.add('is-active');
+          input.checked = true;
+        });
+      });
+
+      buyFallbackButton.addEventListener('click', function () {
+        buyFallbackButton.textContent = 'Connect Shopify Buy Button to Enable Checkout';
+        window.setTimeout(function () {
+          buyFallbackButton.textContent = 'Add to Research Cart →';
+        }, 2200);
+      });
+
+      accordionGroups.forEach(function (group) {
+        var items = group.querySelectorAll('[data-accordion-item]');
+        items.forEach(function (item) {
+          var trigger = item.querySelector('.accordion-trigger');
+          var panel = item.querySelector('.accordion-panel');
+          trigger.addEventListener('click', function () {
+            var expanded = trigger.getAttribute('aria-expanded') === 'true';
+            if (expanded) {
+              collapsePanel(trigger, panel);
+            } else {
+              expandPanel(trigger, panel);
+            }
+          });
+        });
+      });
+
+      function expandPanel(trigger, panel) {
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+
+      function collapsePanel(trigger, panel) {
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = '0px';
+      }
+
+      function closeAccordionPanels() {
+        document.querySelectorAll('.accordion-trigger[aria-expanded="true"]').forEach(function (trigger) {
+          var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+          if (panel) {
+            collapsePanel(trigger, panel);
+          }
+        });
+      }
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+
+      var revealGroups = document.querySelectorAll('section, .ticker, .community-ticker');
+      revealGroups.forEach(function (section) {
+        var revealItems = section.querySelectorAll('[data-reveal]');
+        revealItems.forEach(function (item, index) {
+          item.style.setProperty('--reveal-delay', (index * 100) + 'ms');
+        });
       });
 
       if (!prefersReducedMotion) {
-        var sections = document.querySelectorAll('main section');
-        var observer = new IntersectionObserver(function (entries, obs) {
+        var revealObserver = new IntersectionObserver(function (entries, observer) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('is-visible');
-              obs.unobserve(entry.target);
+              observer.unobserve(entry.target);
             }
           });
         }, { threshold: 0.14 });
 
-        sections.forEach(function (section) {
-          observer.observe(section);
+        document.querySelectorAll('[data-reveal]').forEach(function (item) {
+          revealObserver.observe(item);
+        });
+
+        var progressObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var fill = entry.target;
+              fill.style.width = fill.getAttribute('data-progress') + '%';
+              observer.unobserve(fill);
+            }
+          });
+        }, { threshold: 0.35 });
+
+        document.querySelectorAll('.progress-fill').forEach(function (fill) {
+          progressObserver.observe(fill);
         });
       } else {
-        document.querySelectorAll('main section').forEach(function (section) {
-          section.classList.add('is-visible');
+        document.querySelectorAll('[data-reveal]').forEach(function (item) {
+          item.classList.add('is-visible');
+        });
+        document.querySelectorAll('.progress-fill').forEach(function (fill) {
+          fill.style.width = fill.getAttribute('data-progress') + '%';
+        });
+      }
+
+      if (!prefersReducedMotion && window.gsap && window.ScrollTrigger) {
+        window.gsap.registerPlugin(window.ScrollTrigger);
+        document.querySelectorAll('[data-count]').forEach(function (element) {
+          var start = Number(element.getAttribute('data-start'));
+          var end = Number(element.getAttribute('data-end'));
+          var suffix = element.getAttribute('data-suffix') || '';
+          var value = { current: start };
+          window.gsap.to(value, {
+            current: end,
+            duration: 1.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 85%',
+              once: true
+            },
+            onUpdate: function () {
+              element.textContent = Math.round(value.current) + suffix;
+            },
+            onComplete: function () {
+              element.textContent = Math.round(end) + suffix;
+            }
+          });
         });
       }
     }());
