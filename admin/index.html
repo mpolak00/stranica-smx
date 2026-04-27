@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>NEXO RESEARCH Admin Dashboard</title>
+  <style>
+    @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500&display=swap');
+
+    :root {
+      --bg-base: #0a0a08;
+      --bg-surface: #111110;
+      --bg-card: #161614;
+      --bg-elevated: #1c1c1a;
+      --bg-border: rgba(255,255,255,0.08);
+      --text-primary: #f0efe9;
+      --text-muted: #8a8980;
+      --text-faint: #4a4a46;
+      --accent: #4a9e6b;
+      --accent-hover: #3d8559;
+      --accent-glow: rgba(74,158,107,0.15);
+      --accent-highlight: #6dbf8a;
+      --warning: #c8a45a;
+      --warning-bg: rgba(200,164,90,0.1);
+      --font-display: "Cabinet Grotesk", Georgia, serif;
+      --font-body: "Satoshi", Inter, sans-serif;
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-hero: clamp(2.8rem, 1rem + 6vw, 6rem);
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-14: 3.5rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 999px;
+      --success: #6dbf8a;
+      --danger: #d96f6f;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --transition: 180ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top, rgba(74, 158, 107, 0.06), transparent 26%),
+        var(--bg-base);
+      color: var(--text-primary);
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    select,
+    a {
+      min-height: 44px;
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0 var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--bg-border);
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      transition: border-color var(--transition), background-color var(--transition);
+    }
+
+    input::placeholder {
+      color: var(--text-faint);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      transition: transform var(--transition), border-color var(--transition), background-color var(--transition), color var(--transition);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #f7f5ef;
+      box-shadow: 0 16px 40px var(--accent-glow);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--bg-border);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .text-success {
+      color: var(--success);
+    }
+
+    .text-warning {
+      color: var(--warning);
+    }
+
+    .text-danger {
+      color: var(--danger);
+    }
+
+    .mono {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .app-shell {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .app-shell.is-authenticated {
+      display: flex;
+    }
+
+    .login-screen {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: var(--space-6);
+    }
+
+    .login-screen[hidden],
+    .app-shell[hidden],
+    .tab-panel[hidden] {
+      display: none !important;
+    }
+
+    .login-card {
+      width: min(440px, 100%);
+      padding: var(--space-10);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--bg-border);
+      background: var(--bg-elevated);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand svg {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+    }
+
+    .login-card h1 {
+      margin: var(--space-6) 0 var(--space-3);
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      letter-spacing: -0.04em;
+    }
+
+    .login-card p {
+      margin: 0 0 var(--space-6);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .login-form {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .login-error {
+      min-height: 1.4rem;
+      color: var(--danger);
+      font-size: var(--text-sm);
+    }
+
+    .shake {
+      animation: shake 420ms ease;
+    }
+
+    .sidebar {
+      width: 240px;
+      flex: 0 0 240px;
+      padding: var(--space-6);
+      background: var(--bg-surface);
+      border-right: 1px solid var(--bg-border);
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: var(--space-2);
+      margin-top: var(--space-8);
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-lg);
+      color: var(--text-muted);
+      transition: background-color var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link:focus-visible {
+      background: rgba(255,255,255,0.04);
+      color: var(--text-primary);
+      outline: none;
+      transform: translateX(1px);
+    }
+
+    .sidebar-link.is-active {
+      background: rgba(74, 158, 107, 0.14);
+      color: var(--accent-highlight);
+      box-shadow: inset 0 0 0 1px rgba(74, 158, 107, 0.24);
+    }
+
+    .main-shell {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-6);
+      border-bottom: 1px solid var(--bg-border);
+      background: rgba(10, 10, 8, 0.8);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      min-width: 0;
+    }
+
+    .topbar h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      letter-spacing: -0.03em;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .view-shop-link {
+      color: var(--text-muted);
+    }
+
+    .view-shop-link:hover,
+    .view-shop-link:focus-visible {
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .sidebar-toggle {
+      display: none;
+      width: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-primary);
+    }
+
+    .sidebar-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 3px auto;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .content {
+      padding: var(--space-6);
+    }
+
+    .tab-panel {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .cards-grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .kpi-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--bg-border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: var(--space-6);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .card h3,
+    .card h4 {
+      margin: 0 0 var(--space-3);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .card-value {
+      margin: 0 0 var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--accent-highlight);
+    }
+
+    .card-note {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-6);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-5);
+    }
+
+    .section-heading h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--bg-border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+    }
+
+    thead th {
+      padding: var(--space-4) var(--space-5);
+      text-align: left;
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(odd) {
+      background: var(--bg-card);
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--bg-elevated);
+    }
+
+    tbody tr:hover {
+      background: var(--bg-surface);
+    }
+
+    td {
+      padding: var(--space-4) var(--space-5);
+      border-top: 1px solid var(--bg-border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 0.8rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-processing {
+      color: var(--warning);
+      background: var(--warning-bg);
+      border: 1px solid rgba(200,164,90,0.3);
+    }
+
+    .status-shipped,
+    .status-active,
+    .status-on {
+      color: #eef8f1;
+      background: rgba(74,158,107,0.22);
+      border: 1px solid rgba(74,158,107,0.3);
+    }
+
+    .status-delivered,
+    .status-unsubscribed,
+    .status-off {
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--bg-border);
+    }
+
+    .text-link {
+      padding: 0;
+      background: transparent;
+      color: var(--accent-highlight);
+      min-height: auto;
+    }
+
+    .text-link.warning {
+      color: var(--warning);
+    }
+
+    .text-link:hover,
+    .text-link:focus-visible {
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+
+    .toolbar .grow {
+      flex: 1 1 280px;
+    }
+
+    .toolbar .fit {
+      flex: 0 0 190px;
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+      flex-wrap: wrap;
+    }
+
+    .pagination-status {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .chart-card {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .bar-chart-vertical {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: end;
+      gap: var(--space-8);
+      min-height: 220px;
+      padding-top: var(--space-4);
+    }
+
+    .bar-column {
+      display: grid;
+      gap: var(--space-3);
+      justify-items: center;
+    }
+
+    .bar-wrap {
+      width: 100%;
+      max-width: 120px;
+      height: 180px;
+      display: flex;
+      align-items: flex-end;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--bg-border);
+      overflow: hidden;
+    }
+
+    .bar {
+      width: 100%;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      background: linear-gradient(180deg, var(--accent-highlight), var(--accent));
+    }
+
+    .bar.dark {
+      background: linear-gradient(180deg, #53886a, #315742);
+    }
+
+    .bar-label {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .subscriber-list {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--bg-border);
+    }
+
+    .subscriber-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: var(--space-3);
+      align-items: center;
+      padding: var(--space-4) var(--space-5);
+      font-size: var(--text-sm);
+    }
+
+    .subscriber-row:nth-child(odd) {
+      background: var(--bg-card);
+    }
+
+    .subscriber-row:nth-child(even) {
+      background: var(--bg-elevated);
+    }
+
+    .subscriber-row small {
+      color: var(--text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .period-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .period-tab {
+      min-width: 64px;
+      padding-inline: 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--bg-border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-muted);
+    }
+
+    .period-tab.is-active {
+      background: rgba(74,158,107,0.14);
+      color: var(--accent-highlight);
+      border-color: rgba(74,158,107,0.22);
+    }
+
+    .source-bars,
+    .country-list {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .source-row,
+    .country-row {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .source-meta,
+    .country-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .progress {
+      width: 100%;
+      height: 12px;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.05);
+      overflow: hidden;
+      border: 1px solid var(--bg-border);
+    }
+
+    .progress > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-highlight));
+    }
+
+    .info-box {
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      background: var(--warning-bg);
+      border: 1px solid rgba(200,164,90,0.28);
+      color: var(--warning);
+      line-height: 1.7;
+    }
+
+    .details-row td {
+      background: rgba(74,158,107,0.06);
+      color: var(--text-muted);
+    }
+
+    .yes-no {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: var(--text-sm);
+    }
+
+    .yes-no .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .settings-grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .settings-section {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .field-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .field-grid.two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .field label,
+    .toggle-row span:first-child {
+      display: block;
+      margin-bottom: var(--space-2);
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .toggle-list {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--bg-border);
+      background: var(--bg-card);
+    }
+
+    .toggle {
+      position: relative;
+      width: 58px;
+      height: 34px;
+      flex: 0 0 auto;
+    }
+
+    .toggle input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--bg-border);
+      transition: background-color var(--transition), border-color var(--transition);
+    }
+
+    .toggle-slider::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #f0efe9;
+      transition: transform var(--transition);
+    }
+
+    .toggle input:checked + .toggle-slider {
+      background: rgba(74,158,107,0.3);
+      border-color: rgba(74,158,107,0.35);
+    }
+
+    .toggle input:checked + .toggle-slider::after {
+      transform: translateX(24px);
+    }
+
+    .save-message {
+      min-height: 1.4rem;
+      color: var(--success);
+      font-size: var(--text-sm);
+    }
+
+    .empty-state {
+      display: grid;
+      place-items: center;
+      gap: var(--space-2);
+      padding: var(--space-12) var(--space-6);
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-state strong {
+      color: var(--text-primary);
+      font-size: var(--text-base);
+    }
+
+    .detail-panel {
+      margin-bottom: var(--space-5);
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      background: rgba(74,158,107,0.06);
+      border: 1px solid rgba(74,158,107,0.18);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition);
+      z-index: 29;
+    }
+
+    .overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-10px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(4px); }
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid,
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 767px) {
+      body.sidebar-open {
+        overflow: hidden;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 30;
+        transform: translateX(-100%);
+        transition: transform var(--transition);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .sidebar.is-open {
+        transform: translateX(0);
+      }
+
+      .sidebar-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content,
+      .topbar {
+        padding-inline: var(--space-4);
+      }
+
+      .topbar-right {
+        gap: var(--space-3);
+        font-size: var(--text-sm);
+      }
+
+      .summary-grid,
+      .field-grid.two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .kpi-grid,
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .subscriber-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pagination {
+        align-items: stretch;
+      }
+
+      .pagination .btn {
+        flex: 1 1 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card" id="loginCard">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 8H43L54 20V44L43 56H21L10 44V20L21 8Z" stroke="#4a9e6b" stroke-width="2.8" stroke-linejoin="round"/>
+          <circle cx="32" cy="20" r="3" fill="#6dbf8a"/>
+          <circle cx="22" cy="32" r="3" fill="#6dbf8a"/>
+          <circle cx="42" cy="32" r="3" fill="#6dbf8a"/>
+          <circle cx="32" cy="44" r="3" fill="#6dbf8a"/>
+          <path d="M32 23V41M25 32H39M24.6 29.3L30 22.4M39.2 29.1L34 22.5M24.7 34.8L30 41.6M39.2 34.8L34.1 41.5" stroke="#4a9e6b" stroke-width="2.1" stroke-linecap="round"/>
+        </svg>
+        <span>NEXO RESEARCH<small>Admin console</small></span>
+      </div>
+      <h1>Admin Access</h1>
+      <p>Enter the demo password to access orders, subscribers, analytics, and compliance logs.</p>
+      <form class="login-form" id="loginForm">
+        <input type="password" id="adminPassword" placeholder="Enter admin password" aria-label="Admin password" required>
+        <button class="btn btn-primary" type="submit">Login</button>
+        <div class="login-error" id="loginError" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="sidebarOverlay"></div>
+  <div class="app-shell" id="appShell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 8H43L54 20V44L43 56H21L10 44V20L21 8Z" stroke="#4a9e6b" stroke-width="2.8" stroke-linejoin="round"/>
+          <circle cx="32" cy="20" r="3" fill="#6dbf8a"/>
+          <circle cx="22" cy="32" r="3" fill="#6dbf8a"/>
+          <circle cx="42" cy="32" r="3" fill="#6dbf8a"/>
+          <circle cx="32" cy="44" r="3" fill="#6dbf8a"/>
+          <path d="M32 23V41M25 32H39M24.6 29.3L30 22.4M39.2 29.1L34 22.5M24.7 34.8L30 41.6M39.2 34.8L34.1 41.5" stroke="#4a9e6b" stroke-width="2.1" stroke-linecap="round"/>
+        </svg>
+        <span>NEXO RESEARCH<small>Admin dashboard</small></span>
+      </div>
+      <nav class="sidebar-nav" id="sidebarNav" aria-label="Admin sections"></nav>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle sidebar" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <h2>Admin Dashboard</h2>
+        </div>
+        <div class="topbar-right">
+          <span class="mono" id="currentDate"></span>
+          <a class="view-shop-link" href="../index.html" target="_blank" rel="noopener noreferrer">View Shop</a>
+          <button class="btn btn-outline" id="logoutButton" type="button">Logout</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="tab-panel" id="tab-overview"></section>
+        <section class="tab-panel" id="tab-orders" hidden></section>
+        <section class="tab-panel" id="tab-subscribers" hidden></section>
+        <section class="tab-panel" id="tab-analytics" hidden></section>
+        <section class="tab-panel" id="tab-sessions" hidden></section>
+        <section class="tab-panel" id="tab-settings" hidden></section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var DEMO_PASSWORD = 'nexoadmin2026';
+      var loginScreen = document.getElementById('loginScreen');
+      var loginCard = document.getElementById('loginCard');
+      var loginForm = document.getElementById('loginForm');
+      var adminPassword = document.getElementById('adminPassword');
+      var loginError = document.getElementById('loginError');
+      var appShell = document.getElementById('appShell');
+      var sidebar = document.getElementById('sidebar');
+      var sidebarNav = document.getElementById('sidebarNav');
+      var sidebarToggle = document.getElementById('sidebarToggle');
+      var sidebarOverlay = document.getElementById('sidebarOverlay');
+      var logoutButton = document.getElementById('logoutButton');
+      var currentDate = document.getElementById('currentDate');
+      var panels = {
+        overview: document.getElementById('tab-overview'),
+        orders: document.getElementById('tab-orders'),
+        subscribers: document.getElementById('tab-subscribers'),
+        analytics: document.getElementById('tab-analytics'),
+        sessions: document.getElementById('tab-sessions'),
+        settings: document.getElementById('tab-settings')
+      };
+
+      var navItems = [
+        { id: 'overview', label: 'Overview' },
+        { id: 'orders', label: 'Orders' },
+        { id: 'subscribers', label: 'Subscribers' },
+        { id: 'analytics', label: 'Analytics' },
+        { id: 'sessions', label: 'Sessions' },
+        { id: 'settings', label: 'Settings' }
+      ];
+
+      var overviewKpis = [
+        { label: 'Total Orders', value: '47', note: '+12% this month', tone: 'text-success' },
+        { label: 'Revenue', value: '€8,930', note: '+18% this month', tone: 'text-success' },
+        { label: 'Subscribers', value: '312', note: '+45 this week', tone: 'text-success' },
+        { label: 'Pending Shipment', value: '3', note: 'action needed', tone: 'text-warning' }
+      ];
+
+      var recentOrders = [
+        { id: '#NR-0047', product: 'Semax 60mg', amount: '€249.00', status: 'Shipped', date: '2026-04-25' },
+        { id: '#NR-0046', product: 'Semax 30mg', amount: '€149.00', status: 'Delivered', date: '2026-04-24' },
+        { id: '#NR-0045', product: 'Semax 60mg', amount: '€249.00', status: 'Processing', date: '2026-04-24' },
+        { id: '#NR-0044', product: 'Semax 30mg', amount: '€149.00', status: 'Delivered', date: '2026-04-22' },
+        { id: '#NR-0043', product: 'Semax 60mg', amount: '€249.00', status: 'Shipped', date: '2026-04-22' },
+        { id: '#NR-0042', product: 'Semax 30mg', amount: '€149.00', status: 'Delivered', date: '2026-04-21' },
+        { id: '#NR-0041', product: 'Semax 60mg', amount: '€249.00', status: 'Processing', date: '2026-04-20' },
+        { id: '#NR-0040', product: 'Semax 30mg', amount: '€149.00', status: 'Delivered', date: '2026-04-19' }
+      ];
+
+      var revenueByProduct = [
+        { label: 'Semax 30mg', value: 62, tone: 'light' },
+        { label: 'Semax 60mg', value: 38, tone: 'dark' }
+      ];
+
+      var latestSubscribers = [
+        { email: 'iva.kovac@neuro-lab.hr', source: 'Website', date: '2026-04-26' },
+        { email: 'max.berner@cognitionlab.de', source: 'Shopify', date: '2026-04-26' },
+        { email: 'ema.research@peptide.eu', source: 'Website', date: '2026-04-25' },
+        { email: 'anna.vogel@proteinlab.at', source: 'Manual', date: '2026-04-24' },
+        { email: 'luka.bosnjak@labmail.hr', source: 'Website', date: '2026-04-24' }
+      ];
+
+      var orders = [
+        { id: '#NR-0047', email: 'nina.k@labmail.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Shipped', date: '2026-04-25' },
+        { id: '#NR-0046', email: 'marko.vidovic@research.eu', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Delivered', date: '2026-04-24' },
+        { id: '#NR-0045', email: 'jana.lovric@brainlab.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Processing', date: '2026-04-24' },
+        { id: '#NR-0044', email: 'kai.fischer@neurotest.de', product: 'Semax 30mg', qty: 2, amount: '€298.00', status: 'Delivered', date: '2026-04-22' },
+        { id: '#NR-0043', email: 'petra.h@labgroup.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Shipped', date: '2026-04-22' },
+        { id: '#NR-0042', email: 'lukas.g@coglab.at', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Delivered', date: '2026-04-21' },
+        { id: '#NR-0041', email: 'maria.stein@peptide.de', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Processing', date: '2026-04-20' },
+        { id: '#NR-0040', email: 'sara.juric@labzone.hr', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Delivered', date: '2026-04-19' },
+        { id: '#NR-0039', email: 'anton.kris@protein.eu', product: 'Semax 60mg', qty: 2, amount: '€498.00', status: 'Shipped', date: '2026-04-18' },
+        { id: '#NR-0038', email: 'elena.mikic@science.hr', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Delivered', date: '2026-04-18' },
+        { id: '#NR-0037', email: 'dominik.z@cnslab.eu', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Delivered', date: '2026-04-17' },
+        { id: '#NR-0036', email: 'greta.schmid@labmail.at', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Processing', date: '2026-04-16' },
+        { id: '#NR-0035', email: 'ivan.b@neuroworks.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Delivered', date: '2026-04-15' },
+        { id: '#NR-0034', email: 'noah.keller@analytic.de', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Shipped', date: '2026-04-15' },
+        { id: '#NR-0033', email: 'tea.radic@labmail.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Delivered', date: '2026-04-14' },
+        { id: '#NR-0032', email: 'peter.lang@protein.eu', product: 'Semax 30mg', qty: 3, amount: '€447.00', status: 'Delivered', date: '2026-04-13' },
+        { id: '#NR-0031', email: 'lara.novak@cogresearch.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Shipped', date: '2026-04-12' },
+        { id: '#NR-0030', email: 'felix.hofer@brain.at', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Delivered', date: '2026-04-12' },
+        { id: '#NR-0029', email: 'maja.zoric@science.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Delivered', date: '2026-04-11' },
+        { id: '#NR-0028', email: 'julia.weiss@labmail.de', product: 'Semax 30mg', qty: 2, amount: '€298.00', status: 'Shipped', date: '2026-04-10' },
+        { id: '#NR-0027', email: 'tomislav.k@labdesk.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Processing', date: '2026-04-09' },
+        { id: '#NR-0026', email: 'lea.otto@analytic.de', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Delivered', date: '2026-04-08' },
+        { id: '#NR-0025', email: 'dora.miletic@bio.hr', product: 'Semax 60mg', qty: 1, amount: '€249.00', status: 'Delivered', date: '2026-04-08' },
+        { id: '#NR-0024', email: 'adrian.novak@research.eu', product: 'Semax 30mg', qty: 1, amount: '€149.00', status: 'Shipped', date: '2026-04-07' },
+        { id: '#NR-0023', email: 'rebeka.huber@labmail.at', product: 'Semax 60mg', qty: 2, amount: '€498.00', status: 'Delivered', date: '2026-04-06' }
+      ];
+
+      var subscriberSummary = [
+        { label: 'Total', value: '312' },
+        { label: 'Active', value: '298' },
+        { label: 'Unsubscribed rate', value: '4.5%' }
+      ];
+
+      var subscribers = [
+        { email: 'iva.kovac@neuro-lab.hr', name: 'Iva Kovac', status: 'Active', date: '2026-04-26', source: 'Website' },
+        { email: 'max.berner@cognitionlab.de', name: 'Max Berner', status: 'Active', date: '2026-04-26', source: 'Shopify' },
+        { email: 'ema.research@peptide.eu', name: 'Ema B.', status: 'Active', date: '2026-04-25', source: 'Website' },
+        { email: 'anna.vogel@proteinlab.at', name: 'Anna Vogel', status: 'Active', date: '2026-04-24', source: 'Manual' },
+        { email: 'luka.bosnjak@labmail.hr', name: 'Luka Bosnjak', status: 'Active', date: '2026-04-24', source: 'Website' },
+        { email: 'julia.kern@neurofocus.de', name: 'Julia Kern', status: 'Active', date: '2026-04-23', source: 'Website' },
+        { email: 'teo.m@labmail.hr', name: 'Teo Martic', status: 'Unsubscribed', date: '2026-04-23', source: 'Shopify' },
+        { email: 'paula.gruber@labmail.at', name: 'Paula Gruber', status: 'Active', date: '2026-04-22', source: 'Website' },
+        { email: 'nina.p@brainlab.hr', name: 'Nina P.', status: 'Active', date: '2026-04-22', source: 'Manual' },
+        { email: 'erik.f@research.eu', name: 'Erik Falk', status: 'Active', date: '2026-04-21', source: 'Website' },
+        { email: 'dana.kusic@science.hr', name: 'Dana Kusic', status: 'Unsubscribed', date: '2026-04-21', source: 'Website' },
+        { email: 'mario.lang@labmail.de', name: 'Mario Lang', status: 'Active', date: '2026-04-20', source: 'Shopify' },
+        { email: 'lara.s@peptide.hr', name: 'Lara Simic', status: 'Active', date: '2026-04-20', source: 'Website' },
+        { email: 'franz.ott@bio.at', name: 'Franz Ott', status: 'Active', date: '2026-04-19', source: 'Manual' },
+        { email: 'mia.n@labmail.hr', name: 'Mia Novak', status: 'Active', date: '2026-04-19', source: 'Website' },
+        { email: 'karl.meyer@lab.de', name: 'Karl Meyer', status: 'Active', date: '2026-04-18', source: 'Shopify' },
+        { email: 'filip.p@science.hr', name: 'Filip Peric', status: 'Unsubscribed', date: '2026-04-18', source: 'Website' },
+        { email: 'sofia.weber@labmail.at', name: 'Sofia Weber', status: 'Active', date: '2026-04-17', source: 'Website' },
+        { email: 'jakov.t@coglab.hr', name: 'Jakov Tomas', status: 'Active', date: '2026-04-16', source: 'Manual' },
+        { email: 'leonie.kraus@analysis.de', name: 'Leonie Kraus', status: 'Active', date: '2026-04-15', source: 'Website' }
+      ];
+
+      var analyticsData = {
+        '7d': {
+          metrics: [
+            { label: 'Page Views', value: '234' },
+            { label: 'Unique Visitors', value: '189' },
+            { label: 'Conversion Rate', value: '3.2%' },
+            { label: 'Avg Order Value', value: '€196' }
+          ]
+        },
+        '30d': {
+          metrics: [
+            { label: 'Page Views', value: '1,284' },
+            { label: 'Unique Visitors', value: '944' },
+            { label: 'Conversion Rate', value: '3.7%' },
+            { label: 'Avg Order Value', value: '€190' }
+          ]
+        },
+        '90d': {
+          metrics: [
+            { label: 'Page Views', value: '3,842' },
+            { label: 'Unique Visitors', value: '2,711' },
+            { label: 'Conversion Rate', value: '3.9%' },
+            { label: 'Avg Order Value', value: '€194' }
+          ]
+        },
+        'All time': {
+          metrics: [
+            { label: 'Page Views', value: '9,472' },
+            { label: 'Unique Visitors', value: '6,384' },
+            { label: 'Conversion Rate', value: '4.1%' },
+            { label: 'Avg Order Value', value: '€201' }
+          ]
+        }
+      };
+
+      var visitorSources = [
+        { label: 'Direct', value: 38 },
+        { label: 'Organic Search', value: 28 },
+        { label: 'Social Media', value: 18 },
+        { label: 'Email', value: 16 }
+      ];
+
+      var topCountries = [
+        { label: 'Croatia', value: 45 },
+        { label: 'Germany', value: 22 },
+        { label: 'Austria', value: 15 },
+        { label: 'Netherlands', value: 10 },
+        { label: 'Other', value: 8 }
+      ];
+
+      var gateStats = {
+        confirmed: '347 / 389 sessions confirmed (89.2%)',
+        exited: '28 sessions exited (7.2%)'
+      };
+
+      var sessions = [
+        { id: 'S-1Q4Z8', timestamp: '2026-04-26 17:42', country: 'Croatia', age: true, research: true, browser: 'Chrome 135', details: 'IP region Zagreb. Session continued to product view and newsletter signup.' },
+        { id: 'S-1Q4Z7', timestamp: '2026-04-26 16:58', country: 'Germany', age: true, research: true, browser: 'Safari 18', details: 'Confirmed gate and completed checkout for Semax 60mg.' },
+        { id: 'S-1Q4Z6', timestamp: '2026-04-26 16:11', country: 'Austria', age: true, research: false, browser: 'Firefox 126', details: 'Exited after second checkbox remained unchecked.' },
+        { id: 'S-1Q4Z5', timestamp: '2026-04-26 15:47', country: 'Netherlands', age: true, research: true, browser: 'Edge 135', details: 'Viewed science section and COA CTA before leaving.' },
+        { id: 'S-1Q4Z4', timestamp: '2026-04-26 15:16', country: 'Croatia', age: false, research: false, browser: 'Chrome 135', details: 'Closed gate without confirmation.' },
+        { id: 'S-1Q4Z3', timestamp: '2026-04-26 14:52', country: 'Germany', age: true, research: true, browser: 'Chrome 135', details: 'Moved to cart and checkout entry point.' },
+        { id: 'S-1Q4Z2', timestamp: '2026-04-26 14:24', country: 'Croatia', age: true, research: true, browser: 'Safari 18', details: 'Newsletter opt-in and product comparison viewed.' },
+        { id: 'S-1Q4Z1', timestamp: '2026-04-26 13:38', country: 'Austria', age: true, research: true, browser: 'Chrome 135', details: 'Semax 30mg product card clicked.' },
+        { id: 'S-1Q4Y9', timestamp: '2026-04-26 12:49', country: 'Germany', age: true, research: true, browser: 'Firefox 126', details: 'Policy and FAQ reviewed before exit.' },
+        { id: 'S-1Q4Y8', timestamp: '2026-04-26 11:57', country: 'Croatia', age: true, research: true, browser: 'Edge 135', details: 'Checkout initiated.' },
+        { id: 'S-1Q4Y7', timestamp: '2026-04-26 11:21', country: 'Other', age: true, research: false, browser: 'Chrome 135', details: 'Entered age checkbox only, then exited.' },
+        { id: 'S-1Q4Y6', timestamp: '2026-04-26 10:44', country: 'Netherlands', age: true, research: true, browser: 'Safari 18', details: 'Viewed shipping policy and analytics tags recorded.' },
+        { id: 'S-1Q4Y5', timestamp: '2026-04-26 10:09', country: 'Croatia', age: true, research: true, browser: 'Chrome 135', details: 'Completed order for Semax 30mg.' },
+        { id: 'S-1Q4Y4', timestamp: '2026-04-26 09:55', country: 'Germany', age: true, research: true, browser: 'Firefox 126', details: 'Viewed research policy accordion.' },
+        { id: 'S-1Q4Y3', timestamp: '2026-04-26 09:08', country: 'Austria', age: true, research: true, browser: 'Edge 135', details: 'Repeated visitor from email campaign.' },
+        { id: 'S-1Q4Y2', timestamp: '2026-04-26 08:47', country: 'Croatia', age: true, research: true, browser: 'Chrome 135', details: 'Confirmed gate and used View COA CTA.' },
+        { id: 'S-1Q4Y1', timestamp: '2026-04-26 08:03', country: 'Other', age: false, research: false, browser: 'Safari 18', details: 'Exit link clicked from gate.' },
+        { id: 'S-1Q4X9', timestamp: '2026-04-25 20:18', country: 'Germany', age: true, research: true, browser: 'Chrome 135', details: 'Session converted to subscriber.' },
+        { id: 'S-1Q4X8', timestamp: '2026-04-25 19:42', country: 'Croatia', age: true, research: true, browser: 'Firefox 126', details: 'Shipped order customer revisited FAQ.' },
+        { id: 'S-1Q4X7', timestamp: '2026-04-25 18:26', country: 'Netherlands', age: true, research: true, browser: 'Edge 135', details: 'Viewed starter vs best value options.' }
+      ];
+
+      var settingsData = {
+        storeName: 'Nexo Research',
+        contactEmail: 'care@nexoresearch.com',
+        storeUrl: 'https://nexoresearch.com',
+        notifications: {
+          order: true,
+          subscriber: false,
+          stock: true
+        },
+        ruo: {
+          gate: true,
+          checkout: true
+        },
+        legal: {
+          policy: 'https://nexoresearch.com/research-policy',
+          terms: 'https://nexoresearch.com/terms',
+          privacy: 'https://nexoresearch.com/privacy'
+        }
+      };
+
+      var state = {
+        activeTab: 'overview',
+        orderSearch: '',
+        orderStatus: 'All',
+        orderPage: 1,
+        subscriberSearch: '',
+        subscriberStatus: 'All',
+        subscriberSource: 'All',
+        analyticsPeriod: '30d',
+        expandedSessions: {},
+        selectedOrderId: ''
+      };
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function getStatusClass(status) {
+        var key = status.toLowerCase();
+        if (key === 'processing') {
+          return 'status-processing';
+        }
+        if (key === 'shipped' || key === 'active' || key === 'on') {
+          return 'status-shipped';
+        }
+        return 'status-delivered';
+      }
+
+      function renderSidebar() {
+        sidebarNav.innerHTML = navItems.map(function (item) {
+          var activeClass = item.id === state.activeTab ? 'is-active' : '';
+          return '<button class="sidebar-link ' + activeClass + '" type="button" data-tab="' + escapeHtml(item.id) + '">' + escapeHtml(item.label) + '</button>';
+        }).join('');
+      }
+
+      function switchTab(tabId) {
+        state.activeTab = tabId;
+        Object.keys(panels).forEach(function (key) {
+          panels[key].hidden = key !== tabId;
+        });
+        renderSidebar();
+        closeSidebar();
+      }
+
+      function exportCsv(filename, headers, rows) {
+        var csvRows = [headers.join(',')].concat(rows.map(function (row) {
+          return row.map(function (cell) {
+            var escaped = String(cell).replace(/"/g, '""');
+            return '"' + escaped + '"';
+          }).join(',');
+        }));
+        var csv = csvRows.join('\n');
+        var blob = new Blob([csv], { type: 'text/csv' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function getFilteredOrders() {
+        return orders.filter(function (order) {
+          var matchesSearch = !state.orderSearch || order.id.toLowerCase().indexOf(state.orderSearch) !== -1 || order.email.toLowerCase().indexOf(state.orderSearch) !== -1;
+          var matchesStatus = state.orderStatus === 'All' || order.status === state.orderStatus;
+          return matchesSearch && matchesStatus;
+        });
+      }
+
+      function getFilteredSubscribers() {
+        return subscribers.filter(function (subscriber) {
+          var needle = state.subscriberSearch;
+          var matchesSearch = !needle || subscriber.email.toLowerCase().indexOf(needle) !== -1 || subscriber.name.toLowerCase().indexOf(needle) !== -1;
+          var matchesStatus = state.subscriberStatus === 'All' || subscriber.status === state.subscriberStatus;
+          var matchesSource = state.subscriberSource === 'All' || subscriber.source === state.subscriberSource;
+          return matchesSearch && matchesStatus && matchesSource;
+        });
+      }
+
+      function renderOverview() {
+        panels.overview.innerHTML = [
+          '<div class="cards-grid kpi-grid">',
+          overviewKpis.map(function (kpi) {
+            return '<article class="card"><h3>' + escapeHtml(kpi.label) + '</h3><div class="card-value mono">' + escapeHtml(kpi.value) + '</div><div class="card-note ' + escapeHtml(kpi.tone) + '">' + escapeHtml(kpi.note) + '</div></article>';
+          }).join(''),
+          '</div>',
+          '<div class="split-grid">',
+          '  <article class="card">',
+          '    <div class="section-heading"><h3>Recent Orders</h3></div>',
+          '    <div class="table-wrap">',
+          '      <table>',
+          '        <thead><tr><th>Order ID</th><th>Product</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>',
+          '        <tbody>',
+          recentOrders.map(function (order) {
+            return '<tr><td class="mono">' + escapeHtml(order.id) + '</td><td>' + escapeHtml(order.product) + '</td><td class="mono">' + escapeHtml(order.amount) + '</td><td><span class="status-badge ' + getStatusClass(order.status) + '">' + escapeHtml(order.status) + '</span></td><td class="mono">' + escapeHtml(order.date) + '</td></tr>';
+          }).join(''),
+          '        </tbody>',
+          '      </table>',
+          '    </div>',
+          '  </article>',
+          '  <div class="cards-grid">',
+          '    <article class="card chart-card">',
+          '      <div class="section-heading"><h3>Revenue by Product</h3></div>',
+          '      <div class="bar-chart-vertical">',
+          revenueByProduct.map(function (item) {
+            return '<div class="bar-column"><div class="bar-wrap"><div class="bar ' + (item.tone === 'dark' ? 'dark' : '') + '" style="height:' + item.value + '%;"></div></div><div class="bar-label"><strong>' + escapeHtml(item.label) + '</strong><br>' + item.value + '%</div></div>';
+          }).join(''),
+          '      </div>',
+          '    </article>',
+          '    <article class="card">',
+          '      <div class="section-heading"><h3>Latest Subscribers</h3></div>',
+          '      <div class="subscriber-list">',
+          latestSubscribers.map(function (subscriber) {
+            return '<div class="subscriber-row"><div><strong>' + escapeHtml(subscriber.email) + '</strong><br><small>' + escapeHtml(subscriber.source) + '</small></div><div class="mono">' + escapeHtml(subscriber.date) + '</div><div class="status-badge status-shipped">New</div></div>';
+          }).join(''),
+          '      </div>',
+          '    </article>',
+          '  </div>',
+          '</div>'
+        ].join('');
+      }
+
+      function renderOrders() {
+        var filtered = getFilteredOrders();
+        var pageSize = 10;
+        var totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+        if (state.orderPage > totalPages) {
+          state.orderPage = totalPages;
+        }
+        var start = (state.orderPage - 1) * pageSize;
+        var paginated = filtered.slice(start, start + pageSize);
+        var selected = orders.find(function (order) { return order.id === state.selectedOrderId; });
+        var detailPanel = selected ? '<div class="detail-panel"><strong>' + escapeHtml(selected.id) + '</strong> · ' + escapeHtml(selected.email) + ' · ' + escapeHtml(selected.product) + ' · Qty ' + selected.qty + ' · ' + escapeHtml(selected.amount) + ' · ' + escapeHtml(selected.status) + ' · ' + escapeHtml(selected.date) + '</div>' : '';
+
+        panels.orders.innerHTML = [
+          '<article class="card">',
+          '  <div class="section-heading"><h3>Orders</h3></div>',
+          '  <div class="toolbar">',
+          '    <div class="grow"><input id="orderSearch" type="search" placeholder="Search by order ID or email..." value="' + escapeHtml(state.orderSearch) + '"></div>',
+          '    <div class="fit"><select id="orderStatus"><option>All</option><option>Processing</option><option>Shipped</option><option>Delivered</option></select></div>',
+          '    <button class="btn btn-outline" id="exportOrders" type="button">Export CSV</button>',
+          '  </div>',
+               detailPanel,
+          '  <div class="table-wrap">',
+          filtered.length ? (
+          '    <table><thead><tr><th>Order ID</th><th>Email</th><th>Product</th><th>Qty</th><th>Amount</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead><tbody>' +
+               paginated.map(function (order) {
+                 return '<tr><td class="mono">' + escapeHtml(order.id) + '</td><td>' + escapeHtml(order.email) + '</td><td>' + escapeHtml(order.product) + '</td><td class="mono">' + order.qty + '</td><td class="mono">' + escapeHtml(order.amount) + '</td><td><span class="status-badge ' + getStatusClass(order.status) + '">' + escapeHtml(order.status) + '</span></td><td class="mono">' + escapeHtml(order.date) + '</td><td><button class="text-link" type="button" data-view-order="' + escapeHtml(order.id) + '">View</button></td></tr>';
+               }).join('') +
+          '    </tbody></table>'
+          ) : '<div class="empty-state"><div>◌</div><strong>No results found</strong><span>Try adjusting your search or filter settings.</span></div>',
+          '  </div>',
+          '  <div class="pagination">',
+          '    <button class="btn btn-outline" id="ordersPrev" type="button"' + (state.orderPage === 1 ? ' disabled' : '') + '>Prev</button>',
+          '    <div class="pagination-status mono">Page ' + state.orderPage + ' of ' + totalPages + '</div>',
+          '    <button class="btn btn-outline" id="ordersNext" type="button"' + (state.orderPage === totalPages ? ' disabled' : '') + '>Next</button>',
+          '  </div>',
+          '</article>'
+        ].join('');
+
+        document.getElementById('orderStatus').value = state.orderStatus;
+
+        document.getElementById('orderSearch').addEventListener('input', function (event) {
+          state.orderSearch = event.target.value.trim().toLowerCase();
+          state.orderPage = 1;
+          renderOrders();
+        });
+        document.getElementById('orderStatus').addEventListener('change', function (event) {
+          state.orderStatus = event.target.value;
+          state.orderPage = 1;
+          renderOrders();
+        });
+        document.getElementById('exportOrders').addEventListener('click', function () {
+          exportCsv('orders.csv', ['Order ID', 'Email', 'Product', 'Qty', 'Amount', 'Status', 'Date'], filtered.map(function (order) {
+            return [order.id, order.email, order.product, order.qty, order.amount, order.status, order.date];
+          }));
+        });
+        document.getElementById('ordersPrev').addEventListener('click', function () {
+          if (state.orderPage > 1) {
+            state.orderPage -= 1;
+            renderOrders();
+          }
+        });
+        document.getElementById('ordersNext').addEventListener('click', function () {
+          if (state.orderPage < totalPages) {
+            state.orderPage += 1;
+            renderOrders();
+          }
+        });
+
+        panels.orders.querySelectorAll('[data-view-order]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            state.selectedOrderId = button.getAttribute('data-view-order');
+            renderOrders();
+          });
+        });
+      }
+
+      function renderSubscribers() {
+        var filtered = getFilteredSubscribers();
+        panels.subscribers.innerHTML = [
+          '<div class="cards-grid summary-grid">',
+          subscriberSummary.map(function (item) {
+            return '<article class="card"><h3>' + escapeHtml(item.label) + '</h3><div class="card-value mono">' + escapeHtml(item.value) + '</div></article>';
+          }).join(''),
+          '</div>',
+          '<article class="card">',
+          '  <div class="section-heading"><h3>Subscribers</h3></div>',
+          '  <div class="toolbar">',
+          '    <div class="grow"><input id="subscriberSearch" type="search" placeholder="Search by email or name..." value="' + escapeHtml(state.subscriberSearch) + '"></div>',
+          '    <div class="fit"><select id="subscriberStatus"><option>All</option><option>Active</option><option>Unsubscribed</option></select></div>',
+          '    <div class="fit"><select id="subscriberSource"><option>All</option><option>Website</option><option>Shopify</option><option>Manual</option></select></div>',
+          '    <button class="btn btn-outline" id="exportSubscribers" type="button">Export CSV</button>',
+          '  </div>',
+          '  <div class="table-wrap">',
+          filtered.length ? (
+          '    <table><thead><tr><th>Email</th><th>Name</th><th>Status</th><th>Date</th><th>Source</th><th>Action</th></tr></thead><tbody>' +
+            filtered.map(function (subscriber) {
+              return '<tr><td>' + escapeHtml(subscriber.email) + '</td><td>' + escapeHtml(subscriber.name) + '</td><td><span class="status-badge ' + getStatusClass(subscriber.status) + '">' + escapeHtml(subscriber.status) + '</span></td><td class="mono">' + escapeHtml(subscriber.date) + '</td><td>' + escapeHtml(subscriber.source) + '</td><td><button class="text-link warning" type="button">Unsubscribe</button></td></tr>';
+            }).join('') +
+          '    </tbody></table>'
+          ) : '<div class="empty-state"><div>◌</div><strong>No results found</strong><span>Adjust subscriber filters to see matching contacts.</span></div>',
+          '  </div>',
+          '</article>'
+        ].join('');
+
+        document.getElementById('subscriberStatus').value = state.subscriberStatus;
+        document.getElementById('subscriberSource').value = state.subscriberSource;
+
+        document.getElementById('subscriberSearch').addEventListener('input', function (event) {
+          state.subscriberSearch = event.target.value.trim().toLowerCase();
+          renderSubscribers();
+        });
+        document.getElementById('subscriberStatus').addEventListener('change', function (event) {
+          state.subscriberStatus = event.target.value;
+          renderSubscribers();
+        });
+        document.getElementById('subscriberSource').addEventListener('change', function (event) {
+          state.subscriberSource = event.target.value;
+          renderSubscribers();
+        });
+        document.getElementById('exportSubscribers').addEventListener('click', function () {
+          exportCsv('subscribers.csv', ['Email', 'Name', 'Status', 'Date', 'Source'], filtered.map(function (subscriber) {
+            return [subscriber.email, subscriber.name, subscriber.status, subscriber.date, subscriber.source];
+          }));
+        });
+      }
+
+      function renderAnalytics() {
+        var period = analyticsData[state.analyticsPeriod];
+        panels.analytics.innerHTML = [
+          '<article class="card">',
+          '  <div class="section-heading"><h3>Analytics</h3><div class="period-tabs">' +
+             Object.keys(analyticsData).map(function (label) {
+               var activeClass = label === state.analyticsPeriod ? 'is-active' : '';
+               return '<button class="period-tab ' + activeClass + '" type="button" data-period="' + escapeHtml(label) + '">' + escapeHtml(label) + '</button>';
+             }).join('') +
+          '  </div></div>',
+          '  <div class="cards-grid metric-grid">',
+             period.metrics.map(function (metric) {
+               return '<article class="card"><h3>' + escapeHtml(metric.label) + '</h3><div class="card-value mono">' + escapeHtml(metric.value) + '</div></article>';
+             }).join(''),
+          '  </div>',
+          '</article>',
+          '<div class="split-grid">',
+          '  <article class="card">',
+          '    <div class="section-heading"><h3>Visitor Sources</h3></div>',
+          '    <div class="source-bars">',
+               visitorSources.map(function (source) {
+                 return '<div class="source-row"><div class="source-meta"><span>' + escapeHtml(source.label) + '</span><strong class="mono">' + source.value + '%</strong></div><div class="progress"><span style="width:' + source.value + '%;"></span></div></div>';
+               }).join(''),
+          '    </div>',
+          '  </article>',
+          '  <article class="card">',
+          '    <div class="section-heading"><h3>RUO Gate Stats</h3></div>',
+          '    <div class="card-value mono" style="font-size:1.8rem;">89.2%</div>',
+          '    <p class="card-note mono">' + escapeHtml(gateStats.confirmed) + '</p>',
+          '    <p class="card-note mono">' + escapeHtml(gateStats.exited) + '</p>',
+          '  </article>',
+          '</div>',
+          '<article class="card">',
+          '  <div class="section-heading"><h3>Top Countries</h3></div>',
+          '  <div class="country-list">',
+             topCountries.map(function (country) {
+               return '<div class="country-row"><div class="country-meta"><span>' + escapeHtml(country.label) + '</span><strong class="mono">' + country.value + '%</strong></div><div class="progress"><span style="width:' + country.value + '%;"></span></div></div>';
+             }).join(''),
+          '  </div>',
+          '</article>'
+        ].join('');
+
+        panels.analytics.querySelectorAll('[data-period]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            state.analyticsPeriod = button.getAttribute('data-period');
+            renderAnalytics();
+          });
+        });
+      }
+
+      function renderSessions() {
+        panels.sessions.innerHTML = [
+          '<div class="info-box">This log records RUO gate confirmations for compliance purposes.</div>',
+          '<article class="card">',
+          '  <div class="section-heading"><h3>Compliance Log</h3><button class="btn btn-outline" id="exportSessions" type="button">Export CSV</button></div>',
+          '  <div class="table-wrap">',
+          '    <table><thead><tr><th>Session ID</th><th>Timestamp</th><th>Country</th><th>Confirmed 18+</th><th>Confirmed Research</th><th>Browser</th><th>Action</th></tr></thead><tbody>' +
+               sessions.map(function (session) {
+                 var isOpen = !!state.expandedSessions[session.id];
+                 var mainRow = '<tr><td class="mono">' + escapeHtml(session.id) + '</td><td class="mono">' + escapeHtml(session.timestamp) + '</td><td>' + escapeHtml(session.country) + '</td><td>' + renderYesNo(session.age) + '</td><td>' + renderYesNo(session.research) + '</td><td>' + escapeHtml(session.browser) + '</td><td><button class="text-link" type="button" data-session="' + escapeHtml(session.id) + '">' + (isOpen ? 'Hide' : 'Details') + '</button></td></tr>';
+                 var detailRow = isOpen ? '<tr class="details-row"><td colspan="7">' + escapeHtml(session.details) + '</td></tr>' : '';
+                 return mainRow + detailRow;
+               }).join('') +
+          '    </tbody></table>',
+          '  </div>',
+          '</article>'
+        ].join('');
+
+        document.getElementById('exportSessions').addEventListener('click', function () {
+          exportCsv('sessions.csv', ['Session ID', 'Timestamp', 'Country', 'Confirmed 18+', 'Confirmed Research', 'Browser', 'Details'], sessions.map(function (session) {
+            return [session.id, session.timestamp, session.country, session.age ? 'Yes' : 'No', session.research ? 'Yes' : 'No', session.browser, session.details];
+          }));
+        });
+
+        panels.sessions.querySelectorAll('[data-session]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            var sessionId = button.getAttribute('data-session');
+            state.expandedSessions[sessionId] = !state.expandedSessions[sessionId];
+            renderSessions();
+          });
+        });
+      }
+
+      function renderYesNo(value) {
+        var colorClass = value ? 'text-success' : 'text-danger';
+        var text = value ? 'Yes' : 'No';
+        return '<span class="yes-no ' + colorClass + '"><span class="dot"></span>' + text + '</span>';
+      }
+
+      function renderSettings() {
+        panels.settings.innerHTML = [
+          '<form class="settings-grid" id="settingsForm">',
+          '  <article class="card settings-section">',
+          '    <div class="section-heading"><h3>Store Info</h3></div>',
+          '    <div class="field-grid two-col">',
+          '      <div class="field"><label for="storeName">Store name</label><input id="storeName" type="text" value="' + escapeHtml(settingsData.storeName) + '"></div>',
+          '      <div class="field"><label for="contactEmail">Contact email</label><input id="contactEmail" type="email" value="' + escapeHtml(settingsData.contactEmail) + '"></div>',
+          '    </div>',
+          '    <div class="field"><label for="storeUrl">Store URL</label><input id="storeUrl" type="url" value="' + escapeHtml(settingsData.storeUrl) + '"></div>',
+          '  </article>',
+          '  <article class="card settings-section">',
+          '    <div class="section-heading"><h3>Notifications</h3></div>',
+          '    <div class="toggle-list">',
+               renderToggleRow('orderAlert', 'Email alert on new order', settingsData.notifications.order),
+               renderToggleRow('subscriberAlert', 'Email alert on new subscriber', settingsData.notifications.subscriber),
+               renderToggleRow('stockAlert', 'Low stock alert', settingsData.notifications.stock),
+          '    </div>',
+          '  </article>',
+          '  <article class="card settings-section">',
+          '    <div class="section-heading"><h3>RUO Gate</h3></div>',
+          '    <div class="toggle-list">',
+               renderToggleRow('ruoGate', 'Enable RUO gate on website', settingsData.ruo.gate),
+               renderToggleRow('checkoutGate', 'Require 18+ checkbox at checkout', settingsData.ruo.checkout),
+          '    </div>',
+          '  </article>',
+          '  <article class="card settings-section">',
+          '    <div class="section-heading"><h3>Legal Pages</h3></div>',
+          '    <div class="field-grid">',
+          '      <div class="field"><label for="policyUrl">Research Use Policy URL</label><input id="policyUrl" type="url" value="' + escapeHtml(settingsData.legal.policy) + '"></div>',
+          '      <div class="field"><label for="termsUrl">Terms of Service URL</label><input id="termsUrl" type="url" value="' + escapeHtml(settingsData.legal.terms) + '"></div>',
+          '      <div class="field"><label for="privacyUrl">Privacy Policy URL</label><input id="privacyUrl" type="url" value="' + escapeHtml(settingsData.legal.privacy) + '"></div>',
+          '    </div>',
+          '  </article>',
+          '  <button class="btn btn-primary" type="submit">Save Settings</button>',
+          '  <div class="save-message" id="saveMessage" aria-live="polite"></div>',
+          '</form>'
+        ].join('');
+
+        document.getElementById('settingsForm').addEventListener('submit', function (event) {
+          event.preventDefault();
+          settingsData.storeName = document.getElementById('storeName').value;
+          settingsData.contactEmail = document.getElementById('contactEmail').value;
+          settingsData.storeUrl = document.getElementById('storeUrl').value;
+          settingsData.notifications.order = document.getElementById('orderAlert').checked;
+          settingsData.notifications.subscriber = document.getElementById('subscriberAlert').checked;
+          settingsData.notifications.stock = document.getElementById('stockAlert').checked;
+          settingsData.ruo.gate = document.getElementById('ruoGate').checked;
+          settingsData.ruo.checkout = document.getElementById('checkoutGate').checked;
+          settingsData.legal.policy = document.getElementById('policyUrl').value;
+          settingsData.legal.terms = document.getElementById('termsUrl').value;
+          settingsData.legal.privacy = document.getElementById('privacyUrl').value;
+          document.getElementById('saveMessage').textContent = 'Settings saved';
+        });
+      }
+
+      function renderToggleRow(id, label, checked) {
+        return '<div class="toggle-row"><span>' + escapeHtml(label) + '</span><label class="toggle" for="' + escapeHtml(id) + '"><input id="' + escapeHtml(id) + '" type="checkbox"' + (checked ? ' checked' : '') + '><span class="toggle-slider"></span></label></div>';
+      }
+
+      function renderAll() {
+        renderSidebar();
+        renderOverview();
+        renderOrders();
+        renderSubscribers();
+        renderAnalytics();
+        renderSessions();
+        renderSettings();
+        switchTab(state.activeTab);
+      }
+
+      function openSidebar() {
+        sidebar.classList.add('is-open');
+        sidebarOverlay.classList.add('is-open');
+        document.body.classList.add('sidebar-open');
+        sidebarToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove('is-open');
+        sidebarOverlay.classList.remove('is-open');
+        document.body.classList.remove('sidebar-open');
+        sidebarToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      function showDashboard() {
+        loginScreen.hidden = true;
+        appShell.hidden = false;
+        appShell.classList.add('is-authenticated');
+        currentDate.textContent = new Intl.DateTimeFormat('en-GB', {
+          year: 'numeric',
+          month: 'short',
+          day: '2-digit'
+        }).format(new Date());
+        renderAll();
+      }
+
+      function showLogin() {
+        appShell.hidden = true;
+        appShell.classList.remove('is-authenticated');
+        loginScreen.hidden = false;
+      }
+
+      loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (adminPassword.value === DEMO_PASSWORD) {
+          sessionStorage.setItem('admin_auth', 'true');
+          loginError.textContent = '';
+          showDashboard();
+        } else {
+          loginError.textContent = 'Invalid password';
+          loginCard.classList.remove('shake');
+          void loginCard.offsetWidth;
+          loginCard.classList.add('shake');
+        }
+      });
+
+      sidebarNav.addEventListener('click', function (event) {
+        var button = event.target.closest('[data-tab]');
+        if (!button) {
+          return;
+        }
+        switchTab(button.getAttribute('data-tab'));
+      });
+
+      sidebarToggle.addEventListener('click', function () {
+        if (sidebar.classList.contains('is-open')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      });
+
+      sidebarOverlay.addEventListener('click', closeSidebar);
+
+      logoutButton.addEventListener('click', function () {
+        sessionStorage.removeItem('admin_auth');
+        window.location.reload();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeSidebar();
+        }
+      });
+
+      if (sessionStorage.getItem('admin_auth') === 'true') {
+        showDashboard();
+      } else {
+        showLogin();
+      }
+    }());
+  </script>
+</body>
+</html>

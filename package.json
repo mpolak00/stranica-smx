@@ -1,0 +1,13 @@
+{
+  "name": "nexo-research",
+  "version": "1.0.0",
+  "description": "Nexo Research — research peptide shop landing page",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "echo 'No build step — static HTML'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
